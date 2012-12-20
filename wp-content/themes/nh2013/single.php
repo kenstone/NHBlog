@@ -14,12 +14,14 @@ get_header(); ?>
 	</div>
 
 	<?php get_sidebar(); ?>
-	<section id="articles">
-            <article id="singleton">
-            	<h1><?php the_title(); ?></h1>
-            	<?php echo the_content(); ?>
-    		</article>
-    </section>
+	<?php while ( have_posts() ) : the_post(); ?>
+		<section id="articles">
+		        <article id="singleton">
+		        	<h1><?php the_title(); ?></h1>
+		        	<?php the_content(); ?>
+				</article>
+		</section>
+    <?php endwhile; // end of the loop. ?>
 
  	<div id="leaderboard">
         
