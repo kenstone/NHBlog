@@ -29,3 +29,7 @@ get_header(); ?>
 </div>
 
 <?php get_footer(); ?>
+
+<script src="//dadchartsstorage.blob.core.windows.net/nhblogjs/shCore.js"></script>
+<script src="//dadchartsstorage.blob.core.windows.net/nhblogjs/shBrushCSharp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
