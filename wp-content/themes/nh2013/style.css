@@ -839,6 +839,9 @@ body > header nav ul a:hover {
   max-width: 60%;
 }
 #comments .comment .comment-body .comment-content {
+  font-family: "museo-sans", sans-serif;
+  font-style: normal;
+  font-weight: 300;
   margin-left: 80px;
   margin-top: 10px;
 }
