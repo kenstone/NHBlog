@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
+ * @package NotebookHeavy
+ * @subpackage NH2013
+ * @since NH2013 1.0
  */
 
 get_header(); ?>
@@ -26,6 +26,7 @@ get_header(); ?>
  	<div id="leaderboard">
         
     </div>
+    <?php comments_template( '', true ); ?>
 </div>
 
 <?php get_footer(); ?>
