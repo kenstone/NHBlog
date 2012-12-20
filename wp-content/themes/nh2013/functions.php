@@ -22,14 +22,26 @@
  * @since NH2013 1.0
  */
 
-function nh_scripts_styles() {
+
+function nh2013_setup() {
+
+	// This theme uses a custom image size for featured images, displayed on "standard" posts.
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 9999, 20 ); // Unlimited height, soft crop
+
+}
+
+add_action( 'after_setup_theme', 'nh2013_setup' );
+
+
+function nh2013_scripts_styles() {
 	global $wp_styles;
 
 	wp_enqueue_style( 'nh-style', get_stylesheet_uri() );
 
 }
 
-add_action( 'wp_enqueue_scripts', 'nh_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'nh2013_scripts_styles' );
 
 
 add_filter( 'next_posts_link_attributes', ' title="Older Posts" class="olderPostButton clearfix"');

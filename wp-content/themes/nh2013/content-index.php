@@ -9,7 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>">
-    <div style="background-image: url(img/image-sliver.jpg)" class="sliver">
+    <div style="background-image: url(<?php nhthirteen_get_sliver_source(); ?>)" class="sliver">
     	<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( 'Permalink to %s', the_title_attribute( 'echo=0' )  ) ); ?>" rel="bookmark">&nbsp;</a>
     </div>
     <div class="postInfo">
