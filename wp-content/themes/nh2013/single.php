@@ -17,7 +17,7 @@ get_header(); ?>
 	<section id="articles">
             <article id="singleton">
             	<h1><?php the_title(); ?></h1>
-            	<?php the_content(); ?>
+            	<?php echo the_content(); ?>
     		</article>
     </section>
 
