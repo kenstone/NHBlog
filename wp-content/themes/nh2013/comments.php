@@ -55,6 +55,8 @@ if ( post_password_required() )
 			'url' => '<p class="comment-form-url"><label for="url" class=ancientHelper>Your Website</label><input id="url" name="url" type="text" placeholder="Your Website" value="' . esc_attr( $commenter['comment_author_url'] ) . '" /></p>'
 			)),
 			'comment_field' => '<p class="comment-form-comment"><label for="comment" class="ancientHelper">Comment</label><textarea id="comment" name="comment" placeholder="Comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+			'comment_notes_after' => '',
+			'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ' <label class="ancientHelper">Required fields are marked with a <span class="required">*</span></label></p>',
 
 
 			);

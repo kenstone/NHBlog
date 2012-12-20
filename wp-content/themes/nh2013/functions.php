@@ -82,6 +82,18 @@ function nhthirteen_get_sliver_source( ) {
 
 	return $image_url;
 }
+endif;
+
+
+if ( ! function_exists( 'nhthirteen_get_featured_source' ) ) :
+
+function nhthirteen_get_featured_source() {
+	$image_id = get_post_thumbnail_id();
+	$image_url = wp_get_attachment_image_src($image_id, 'full');
+	$image_url = $image_url[0];
+
+	return $image_url;
+}
 
 endif;
 

@@ -8,7 +8,7 @@
 
 get_header(); ?>
  <div id="main">
-	<div id="bigImage" style="background-image: url(img/eeprom-wide.jpg)">
+	<div id="bigImage" style="background-image: url(<?php echo nhthirteen_get_featured_source(); ?>)">
 	    <div class="blackOverlay"></div>
 
 	</div>
