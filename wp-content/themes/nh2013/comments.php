@@ -51,7 +51,7 @@ if ( post_password_required() )
 			'label_submit' => 'Post Comment!',
 			'fields' => apply_filters( 'comment_form_default_fields', array(
 			'email' => '<p class="comment-form-email"><label for="email" class="ancientHelper">Email</label><input id="email" name="email" type="email" placeholder="Your email" required="required" value="' . esc_attr(  $commenter['comment_author_email'] ) . '"' . $aria_req . ' /></p>'
-			)
+			))
 
 
 			);
