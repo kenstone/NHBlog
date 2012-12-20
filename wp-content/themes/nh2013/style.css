@@ -12,7 +12,6 @@ License URI:
 
 General comments (optional).
 */
-
 /*
  * HTML5 Boilerplate
  *
@@ -638,9 +637,12 @@ body > header nav ul a:hover {
   padding-right: 40px;
   text-align: justify;
 }
-#articles article section + p {
+#articles article section > p {
   margin-top: 0;
   margin-bottom: 0;
+}
+#articles article section > p + p {
+  text-indent: 2em;
 }
 #articles article footer {
   /*background-color: rgba(0,0,0,.8);*/
