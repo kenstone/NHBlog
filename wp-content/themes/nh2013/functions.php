@@ -23,7 +23,7 @@
  */
 
 
-function nh2013_setup() {
+function nhthirteen_setup() {
 
 	// This theme uses a custom image size for featured images, displayed on "standard" posts.
 	add_theme_support( 'post-thumbnails' );
@@ -31,17 +31,17 @@ function nh2013_setup() {
 
 }
 
-add_action( 'after_setup_theme', 'nh2013_setup' );
+add_action( 'after_setup_theme', 'nhthirteen_setup' );
 
 
-function nh2013_scripts_styles() {
+function nhthirteen_scripts_styles() {
 	global $wp_styles;
 
 	wp_enqueue_style( 'nh-style', get_stylesheet_uri() );
 
 }
 
-add_action( 'wp_enqueue_scripts', 'nh2013_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'nhthirteen_scripts_styles' );
 
 
 add_filter( 'next_posts_link_attributes', ' title="Older Posts" class="olderPostButton clearfix"');
@@ -63,5 +63,18 @@ function nhthirteen_content_nav( ) {
 		</nav>
 	<?php endif;
 }
+endif;
+
+if ( ! function_exists( 'nhthirteen_get_sliver_source' ) ) :
+
+function nhthirteen_get_sliver_source( ) {
+
+	$image_id = get_post_thumbnail_id();
+	$image_url = wp_get_attachment_image_src($image_id);
+	$image_url = $image_url[0];
+
+	return $image_url;
+}
+
 endif;
 
