@@ -39,7 +39,7 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-    <link rel="stylesheet" href="css/nhstyle.css">
+    <link rel="stylesheet" href="style.css">
 
     <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Feed" href="http://notebookheavy.com/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Comments Feed" href="http://notebookheavy.com/comments/feed/" />
@@ -47,7 +47,7 @@
     <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
     <script type="text/javascript" src="//use.typekit.net/iis6ajs.js"></script>
     <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
-    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+    <script src="//dadchartsstorage.blob.core.windows.net/nhblogjs/modernizr-2.5.3.min.js"></script>
 
 
   
