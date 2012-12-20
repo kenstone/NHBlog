@@ -30,7 +30,7 @@ if ( post_password_required() )
 			Comments
 		</h2>
 
-		<ol class="commentlist">
+		<ol>
 			<?php wp_list_comments( array( 'callback' => 'nhthirteen_comment', 'style' => 'ol' ) ); ?>
 		</ol><!-- .commentlist -->
 
