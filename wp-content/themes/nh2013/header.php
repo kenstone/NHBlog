@@ -53,7 +53,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html" title="Notebook Heavy">NOTEBOOK HEAVY</a>
+        <a href="/" title="Notebook Heavy">NOTEBOOK HEAVY</a>
         <nav>
             <ul>
                 <li>
