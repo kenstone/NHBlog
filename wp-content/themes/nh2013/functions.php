@@ -122,7 +122,7 @@ function nhthirteen_comment( $comment, $args, $depth ) {
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment-body">
-			<?php echo get_avatar( $comment, 44 );
+			<?php echo get_avatar( $comment, 44 );?>
 			<header class="comment-meta comment-author vcard">
 				<?php
 					
