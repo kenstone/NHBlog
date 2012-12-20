@@ -49,7 +49,7 @@ if ( post_password_required() )
 			'title_reply' => 'Reply',
 			'title_reply_to' => 'Reply to %s',
 			'label_submit' => 'Post Comment!',
-			'email' => '<p class="comment-form-email"><label for="email" class="ancientHelper">Email</label><input id="email" name="email" type="email" placeholder="Your email" required="required" value="' . esc_attr(  $commenter['comment_author_email'] ) . '' . $aria_req . ' /></p>',
+			'email' => '<p class="comment-form-email"><label for="email" class="ancientHelper">Email</label><input id="email" name="email" type="email" placeholder="Your email" required="required" value="' . esc_attr(  $commenter['comment_author_email'] ) . '' . $aria_req . ' /></p>'
 
 
 			);
