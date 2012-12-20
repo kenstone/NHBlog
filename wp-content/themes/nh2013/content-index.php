@@ -9,7 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>">
-    <div style="background-image: url(<?php wp_get_attachment_thumb_url( the_ID() ); ?>)" class="sliver">
+    <div style="background-image: url(<?php echo wp_get_attachment_thumb_url( the_ID() ); ?>)" class="sliver">
     	<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( 'Permalink to %s', the_title_attribute( 'echo=0' )  ) ); ?>" rel="bookmark">&nbsp;</a>
     </div>
     <div class="postInfo">
