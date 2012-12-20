@@ -66,7 +66,9 @@ function nhthirteen_content_nav( ) {
 endif;
 
 if ( ! function_exists( 'nhthirteen_get_sliver_source' ) ) :
-
+/*
+  Helper function used to return the src URL of the sliver image used on the front page.
+ */ 
 function nhthirteen_get_sliver_source( ) {
 
 	$image_id = get_post_thumbnail_id();
