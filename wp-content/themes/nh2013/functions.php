@@ -78,3 +78,10 @@ function nhthirteen_get_sliver_source( ) {
 
 endif;
 
+/* Helper function used to increase the length of the except shown on the front page.
+ */
+function custom_excerpt_length( $length ) {
+	return 75;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
