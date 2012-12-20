@@ -50,8 +50,11 @@ if ( post_password_required() )
 			'title_reply_to' => 'Reply to %s',
 			'label_submit' => 'Post Comment!',
 			'fields' => apply_filters( 'comment_form_default_fields', array(
-			'email' => '<p class="comment-form-email"><label for="email" class="ancientHelper">Email</label><input id="email" name="email" type="email" placeholder="Your email" required="required" value="' . esc_attr(  $commenter['comment_author_email'] ) . '"' . $aria_req . ' /></p>'
-			))
+				'author' => '<p class="comment-form-author">' . '<label for="author" class="ancientHelper">Your Name</label><input id="author" name="author" type="text" placeholder="Your Name" required="required" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . $aria_req . ' /></p>',
+			'email' => '<p class="comment-form-email"><label for="email" class="ancientHelper">Your Email</label><input id="email" name="email" type="email" placeholder="Your Email" required="required" value="' . esc_attr(  $commenter['comment_author_email'] ) . '"' . $aria_req . ' /></p>',
+			'url' => '<p class="comment-form-url"><label for="url" class=ancientHelper>Your Website</label><input id="url" name="url" type="text" placeholder="Your Website" value="' . esc_attr( $commenter['comment_author_url'] ) . '" /></p>'
+			)),
+			'comment_field' => '<p class="comment-form-comment"><label for="comment" class="ancientHelper">Comment</label><textarea id="comment" name="comment" placeholder="Comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 
 
 			);
