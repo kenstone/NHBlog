@@ -73,7 +73,7 @@ function nhthirteen_get_sliver_source( ) {
 	$image_url = wp_get_attachment_image_src($image_id);
 	$image_url = $image_url[0];
 
-	return $image_url;
+	echo $image_url;
 }
 
 endif;
