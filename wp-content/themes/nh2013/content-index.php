@@ -18,7 +18,7 @@
             <time><?php the_date('Y-m-d'); ?></time>
             
             <div class="tags">
-               <?php the_tags(); ?>
+               <?php the_tags('', ', ',''); ?>
             </div>
 
         </footer>
