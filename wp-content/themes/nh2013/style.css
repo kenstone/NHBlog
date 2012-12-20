@@ -483,7 +483,8 @@ body > header nav ul li {
   display: block;
   margin-right: 40px;
 }
-body > header nav ul li a {
+body > header nav ul li a,
+body > header nav ul li a:visited {
   color: #08949f;
   font-size: 20px;
   font-family: "museo-slab", serif;
