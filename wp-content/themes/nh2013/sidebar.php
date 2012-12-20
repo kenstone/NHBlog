@@ -33,8 +33,7 @@
         </div>
     </div>
     <div>
-        <input type="search" placeholder="search here" id="search" />
-        <button>Search</button>
+       <?php get_search_form( $echo ); ?>
     </div>
   
     <div id="ad1">
