@@ -470,6 +470,7 @@ body > header a:visited {
   font-weight: 300;
 }
 body > header nav {
+  float: right;
   width: 45%;
   display: inline-block;
 }
