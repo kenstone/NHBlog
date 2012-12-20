@@ -22,10 +22,10 @@
  * @since NH2013 1.0
  */
 
-function twentytwelve_scripts_styles() {
+function nh_scripts_styles() {
 	global $wp_styles;
 
-	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'nh-style', get_stylesheet_uri() );
 
 }
 
