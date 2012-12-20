@@ -11,6 +11,6 @@
 ?>
 
 <form action="/" method="get">
-    <input type="search" placeholder="search here" id="search" />
+    <input type="search" placeholder="search here" id="search" name="s" />
     <button>Search</button>
 </form>
