@@ -46,8 +46,8 @@ function nhthirteen_content_nav( ) {
 
 	if ( $wp_query->max_num_pages > 1 ) : ?>
 		<nav>
-			<?php next_posts_link('Older Posts')?>
 			<?php previous_posts_link( 'Newer Posts')?>
+			<?php next_posts_link('Older Posts')?>
 		</nav>
 	<?php endif;
 }
