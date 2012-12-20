@@ -7,16 +7,24 @@
  */
 
 get_header(); ?>
+ <div id="main">
+	<?php get_sidebar(); ?>
+		<section id="articles">
 
-<?php get_sidebar(); ?>
-	<section id="articles">
+
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part( 'content', 'index' ); ?>
+			<?php endwhile; ?>
+
+	      <?php nhthirteen_content_nav(); ?>
+
+		</section>
 
 
-		<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'content', 'index' ); ?>
-		<?php endwhile; ?>
+</div>
 
-      <?php nhthirteen_content_nav(); ?>
+<div id="leaderboard">
+    
+</div>
 
-	</section>
-	<?php get_footer(); ?>
+<?php get_footer(); ?>

@@ -9,11 +9,6 @@
  ?>
 
 
-</div>
-
-    <div id="leaderboard">
-        
-    </div>
     
 
     <footer>
