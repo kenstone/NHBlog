@@ -70,10 +70,10 @@ if ( ! function_exists( 'nhthirteen_get_sliver_source' ) ) :
 function nhthirteen_get_sliver_source( ) {
 
 	$image_id = get_post_thumbnail_id();
-	$image_url = wp_get_attachment_image_src($image_id, 'thumbnail');
+	$image_url = wp_get_attachment_image_src($image_id, array(9999,20));
 	$image_url = $image_url[0];
 
-	echo $image_url;
+	return $image_url;
 }
 
 endif;
