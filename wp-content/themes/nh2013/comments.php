@@ -65,4 +65,12 @@ if ( post_password_required() )
 
 	<?php comment_form($fields); ?>
 
+	<script>
+
+        if (!Modernizr.input.placeholder) {
+            $(".ancientHelper").show();
+        }
+
+    </script>
+
 </section><!-- #comments .comments-area -->
