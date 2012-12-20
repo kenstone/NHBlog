@@ -44,7 +44,17 @@ if ( post_password_required() )
 		<?php endif; ?>
 
 	<?php endif; // have_comments() ?>
+	<?php
+		$fields = array(
+			'title_reply' => 'Reply'
 
-	<?php comment_form(); ?>
+
+			);
+
+
+
+	?>
+
+	<?php comment_form($fields); ?>
 
 </section><!-- #comments .comments-area -->
