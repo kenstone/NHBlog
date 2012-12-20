@@ -22,6 +22,15 @@
  * @since NH2013 1.0
  */
 
+function twentytwelve_scripts_styles() {
+	global $wp_styles;
+
+	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
+
+}
+
+add_action( 'wp_enqueue_scripts', 'nh_scripts_styles' );
+
 
 add_filter( 'next_posts_link_attributes', ' title="Older Posts" class="olderPostButton clearfix"');
 add_filter( 'previous_posts_link_attributes', 'title="Newer Posts" class="newerPostButton"');

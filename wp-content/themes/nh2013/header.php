@@ -39,7 +39,6 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-    <link rel="stylesheet" href="style.css">
 
     <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Feed" href="http://notebookheavy.com/feed/" />
     <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Comments Feed" href="http://notebookheavy.com/comments/feed/" />
@@ -50,7 +49,7 @@
     <script src="//dadchartsstorage.blob.core.windows.net/nhblogjs/modernizr-2.5.3.min.js"></script>
 
 
-  
+    <?php wp_head(); ?>
 </head>
 <body>
     <header>
