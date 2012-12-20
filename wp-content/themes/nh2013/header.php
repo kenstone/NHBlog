@@ -16,19 +16,24 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
+<html class="no-js"<?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
 
-    <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-       More info: h5bp.com/i/378 -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><?php wp_title( '|', true, 'right' ); ?></title>
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-    <title>Notebook Heavy</title>
+	<meta name="author" content="David Iffland" />
+	<meta name="copyright" content="David Iffland" />
+
     <meta name="description" content="">
 
-    <link rel="author" href="http://plus.google.com/117442799415877949162" />
+    <link rel="me" type="text/html" href="http://plus.google.com/117442799415877949162" />
+    <link rel="me" type="text/html" href="http://twitter.com/kenstone"> 
+
+
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
     <meta name="viewport" content="width=device-width">
 
@@ -43,6 +48,9 @@
     <script type="text/javascript" src="//use.typekit.net/iis6ajs.js"></script>
     <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
     <script src="js/libs/modernizr-2.5.3.min.js"></script>
+
+
+  
 </head>
 <body>
     <header>
@@ -59,3 +67,5 @@
 
 
     </header>
+    <div id="main">
+    	
