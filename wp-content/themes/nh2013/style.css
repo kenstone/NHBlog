@@ -873,6 +873,7 @@ body > footer a {
   font-family: "museo-sans", sans-serif;
   font-style: normal;
   font-weight: 300;
+  clear:both;
 }
 .ancientHelper {
   display: none;
