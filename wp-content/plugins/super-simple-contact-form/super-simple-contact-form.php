@@ -9,6 +9,9 @@ Author URI: http://shinraholdings.com
 	Copyright 2012 Shinra Web Holdings (http://shinraholdings.com)
 */
 
+/* Updated this to do my bidding!!!! Mu Ha Ha Ha.
+ */
+
 function super_simple_contact_form() { 
 	if( array_key_exists( 'submit', $_POST ) ) : 
 		$to_email = get_option( 'admin_email' );
@@ -23,30 +26,37 @@ function super_simple_contact_form() {
 	else : 
 		$output = '
 <!-- start Super Simple Contact Form -->
-<div class="sscf-wrapper" style="margin:0; padding:0; clear:both;">
-	<form action="" method="post">
-	<p class="sscf-from-name">
-		<label for="sscf_from_name" style="width:100px; float:left;">' . __( 'Your name:', 'SuperSimpleContactForm' ) .'</label>
-		<input type="text" name="sscf_from_name" id="sscf_from_name" style="width:280px;" /></p>
-		
-	<p class="sscf-from-email">
-		<label for="sscf_from_email" style="width:100px; float:left;">' . __( 'Your email:', 'SuperSimpleContactForm' ) .'</label>
-		<input type="text" name="sscf_from_email" id="sscf_from_email" style="width:280px;" /></p>
-		
-	<p class="sscf-subject">
-		<label for="sscf_subject" style="width:100px; float:left;">' . __( 'Subject:', 'SuperSimpleContactForm' ) .'</label>
-		<input type="text" name="sscf_subject" id="sscf_subject" style="width:280px;" /></p>
-		
-	<p class="sscf-message">
-		<label for="sscf_message" style="width:100px; float:left;">' . __( 'Message', 'SuperSimpleContactForm' ) .'</label>
-		<textarea name="sscf_message" id="sscf_message" cols="45" rows="5" style="width:280px; height:102px"></textarea></p>
-		
-	<p class="sscf-submit">
-		<input type="submit" name="submit" id="submit" value="Send" style="margin-left:100px;" /></p>
-		
-	<p style="clear:both;">&nbsp;</p>
+	<form action="" method="post" id="contactForm">
+		<ul>
+	        <li>
+	            <div class="ancientHelper"><label for="sscf_from_name">Your Name</label></div>
+	            <input type="text" placeholder="Your Name" name="sscf_from_name" required="required"  id="sscf_from_name"  /><span class="ancientHelper required">(required)</span>
+	        </li>
+	        <li>
+	            <div class="ancientHelper"><label for="sscf_from_email">Your Email</label></div>
+	            <input type="email" placeholder="Your Email" name="sscf_from_email" id="sscf_from_email" required="required" /><span class="ancientHelper required">(required)</span>
+	        </li>
+	        <li>
+	            <div class="ancientHelper"><label for="sscf_subject">Subject</label></div>
+	            <input type="text" placeholder="Subject" name="sscf_subject" id="sscf_subject" /></li>
+	        <li>
+	            <div class="ancientHelper"><label for="sscf_message">Message</label></div>
+	            <textarea placeholder="Message" name="sscf_message" id="sscf_message" required="required"></textarea>
+	        </li>
+	        <li>
+	            <input type="submit" name="submit" id="submit" value="Send Message!" /></p></li>
+	    </ul>
+
 	</form>
-</div>
+
+	<script>
+
+        if (!Modernizr.input.placeholder) {
+            $(".ancientHelper").show();
+        }
+
+    </script>
+
 <!-- end Super Simple Contact Form -->';
 	endif;
 	
