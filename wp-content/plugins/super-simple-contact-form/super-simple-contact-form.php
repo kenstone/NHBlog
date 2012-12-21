@@ -22,7 +22,7 @@ function super_simple_contact_form() {
 		$headers = 'From: ' . $from_name . ' <' . $from_email . '>' . "\r\n";
 		
 		wp_mail( $to_email, $subject, $message, $headers );
-		$output = '<p>' . __( 'Your message was sent successfully!', 'SuperSimpleContactForm' ) . '</p>';  
+		$output = '<div>' . __( 'Your message was sent successfully!', 'SuperSimpleContactForm' ) . '</div>';  
 	else : 
 		$output = '
 <!-- start Super Simple Contact Form -->
