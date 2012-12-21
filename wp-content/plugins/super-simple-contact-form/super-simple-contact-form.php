@@ -21,7 +21,7 @@ function super_simple_contact_form() {
 		$from_email = ( empty ( $_POST['sscf_from_email'] ) ? $to_email : esc_attr( $_POST['sscf_from_email'] ) );
 		$headers = 'From: ' . $from_name . ' <' . $from_email . '>' . "\r\n";
 		
-		$message = 'From: ' . $from_name . ' ( ' . $from_email . ' )\r\n' . $message;
+		$message = 'From: ' . $from_name . ' ( ' . $from_email . ' )' . "\r\n" . $message;
 
 
 		wp_mail( $to_email, $subject, $message, $headers );
