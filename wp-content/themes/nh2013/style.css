@@ -597,7 +597,6 @@ body > header nav ul a:hover {
 }
 #articles article h1,
 #articles article h2 {
-  margin-top: 20px;
   font-family: "museo-slab", serif;
   font-style: normal;
   font-weight: 300;
@@ -610,6 +609,9 @@ body > header nav ul a:hover {
   font-style: normal;
   font-weight: 300;
   font-weight: 500;
+}
+#articles article h2 {
+  margin-top: 20px;
 }
 #articles article .sliver {
   background-position: center;
