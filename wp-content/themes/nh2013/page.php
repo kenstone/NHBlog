@@ -21,7 +21,7 @@ get_header(); ?>
 		<article id="singleton">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'content', 'page' ); ?>
-			<?php comments_template( '', true ); ?>
+			<!-- hello -->
 		<?php endwhile; // end of the loop. ?>
 		</article>
 	</section>
