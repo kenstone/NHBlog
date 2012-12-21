@@ -867,13 +867,14 @@ body > footer {
   font-weight: 300;
   font-weight: 500;
   margin-top: 100px;
+  clear:both;
 }
 body > footer a {
   margin-right: 40px;
   font-family: "museo-sans", sans-serif;
   font-style: normal;
   font-weight: 300;
-  clear:both;
+
 }
 .ancientHelper {
   display: none;
