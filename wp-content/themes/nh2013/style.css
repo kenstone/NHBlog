@@ -590,6 +590,14 @@ body > header nav ul a:hover {
 #articles article p {
   font-size: 115%;
 }
+#articles article > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#articles article > p + p {
+  text-indent: 2em;
+}
+
 #articles article .postInfo {
   margin-left: 80px;
   float: left;
@@ -640,13 +648,7 @@ body > header nav ul a:hover {
   padding-right: 40px;
   text-align: justify;
 }
-#articles article section > p {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-#articles article section > p + p {
-  text-indent: 2em;
-}
+
 #articles article footer {
   /*background-color: rgba(0,0,0,.8);*/
 
