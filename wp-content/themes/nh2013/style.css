@@ -625,7 +625,7 @@ body > header nav ul a:hover {
   width: 55%;
   float: left;
   margin-top: 20px;
-  padding-left: 20%;
+  padding-left: 20px;
 }
 #articles article section {
   -ms-text-overflow: ellipsis;
