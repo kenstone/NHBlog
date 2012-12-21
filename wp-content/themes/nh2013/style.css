@@ -676,6 +676,9 @@ body > header nav ul a:hover {
 #articles article#singleton h2 {
   margin-top: 20px;
 }
+#articles article#singleton h1 {
+  margin-top:0px;
+}
 #articles article#singleton img.left + p + h2 {
   margin-top: 60px;
 }
