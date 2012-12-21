@@ -15,7 +15,7 @@ Author URI: http://shinraholdings.com
 function super_simple_contact_form() { 
 	if( array_key_exists( 'submit', $_POST ) ) : 
 		$to_email = get_option( 'admin_email' );
-		$subject = 'Super Simple Contact Form: ' . ( empty( $_POST['sscf_subject'] ) ? '(no subject)' : $_POST['sscf_subject'] );
+		$subject = 'Notebook Heavy Contact Form: ' . ( empty( $_POST['sscf_subject'] ) ? '(no subject)' : $_POST['sscf_subject'] );
 		$message = ( empty( $_POST['sscf_message'] ) ? '(message was blank)' : $_POST['sscf_message'] );
 		$from_name = ( empty( $_POST['sscf_from_name'] ) ? '(name was blank)' : $_POST['sscf_from_name'] );
 		$from_email = ( empty ( $_POST['sscf_from_email'] ) ? $to_email : esc_attr( $_POST['sscf_from_email'] ) );
