@@ -51,7 +51,7 @@
     <?php wp_head(); ?>
 </head>
 <body>
-    <header>
+    <header class="clearfix">
         <a href="/" title="Notebook Heavy">NOTEBOOK HEAVY</a>
         <nav>
             <ul>
