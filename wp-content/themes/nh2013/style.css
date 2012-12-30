@@ -1,17 +1,20 @@
-/*
-Theme Name: Notebook Heavy 2013
-Theme URI: http://notebookheavy.com/
-Description: The 2013 theme for Notebook Heavy
-Author: Dave Iffland
-Author URI: http://notebookheavy.com/
-Version: 1.0
-Tags: 
+  /*
+  Theme Name: Notebook Heavy 2013
+    Theme URI: http://notebookheavy.com/
+    Description: The 2013 theme for Notebook Heavy
+    Author: Dave Iffland
+    Author URI: http://notebookheavy.com/
+    Version: 1.0
+    Tags: 
+    
+    License:
+  License URI:
+  
+  General comments (optional).
+  */
 
-License:
-License URI:
 
-General comments (optional).
-*/
+
 /*
  * HTML5 Boilerplate
  *
@@ -133,11 +136,13 @@ body {
 ::-moz-selection {
   background: #fe57a1;
   color: #fff;
+  -webkit-text-shadow: none;
   text-shadow: none;
 }
 ::selection {
   background: #fe57a1;
   color: #fff;
+  -webkit-text-shadow: none;
   text-shadow: none;
 }
 /* =============================================================================
@@ -224,6 +229,7 @@ samp {
 pre {
   white-space: pre;
   white-space: pre-wrap;
+  -ms-word-wrap: break-word;
   word-wrap: break-word;
 }
 q {
@@ -367,6 +373,8 @@ input[disabled] {
  */
 input[type="checkbox"],
 input[type="radio"] {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
   *width: 13px;
@@ -451,11 +459,16 @@ img.right {
 img.left {
   margin-right: 10px;
 }
+#socialButtonsMobile {
+  display: none;
+}
 body > header {
+  padding-left: 20px;
   height: 80px;
   background-color: #ffffff;
   position: relative;
-  padding-left: 80px;
+  /* navigation - fullscreen*/
+
 }
 body > header a,
 body > header a:hover,
@@ -471,7 +484,6 @@ body > header a:visited {
 }
 body > header nav {
   float: right;
-  width: 45%;
   display: inline-block;
 }
 body > header nav ul {
@@ -508,6 +520,8 @@ body > header nav ul a:hover {
   margin-left: auto;
   margin-right: auto;
   height: auto;
+  position: relative;
+  overflow: hidden;
   /* FORMS */
 
 }
@@ -570,17 +584,20 @@ body > header nav ul a:hover {
 #main form ul li {
   margin-bottom: 20px;
 }
+/* Articles Content */
 #articles {
-  width: auto;
-  float: none;
-  overflow: hidden;
+  width: 950px;
+  width: -webkit-calc(100% - 336px - 80px);
+  width: calc(100% - 336px - 80px);
+  float: left;
   margin-bottom: 40px;
+  /*max-width:@surface-width - (@gutter *4) - 336;*/
+
   /* Singleton Article */
 
 }
 #articles article {
-  height: 300px;
-  margin-bottom: 120px;
+  margin-bottom: 100px;
   position: relative;
   line-height: 26px;
   font-family: "museo-sans", sans-serif;
@@ -597,11 +614,10 @@ body > header nav ul a:hover {
 #articles article > p + p {
   text-indent: 2em;
 }
-
 #articles article .postInfo {
-  margin-left: 80px;
-  float: left;
-  width: 30%;
+  float: none;
+  margin-left: 20px;
+  width: 100%;
 }
 #articles article h1,
 #articles article h2 {
@@ -632,38 +648,31 @@ body > header nav ul a:hover {
   display: block;
 }
 #articles article .postSample {
-  width: 55%;
-  float: left;
-  margin-top: 20px;
   padding-left: 20px;
+  margin-top: 20px;
 }
 #articles article section {
   -ms-text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  height: 240px;
   overflow: hidden;
   display: block;
   font-size: 115%;
-  padding-right: 40px;
-  text-align: justify;
 }
-
+#articles article section > p:first-child {
+  margin-top: 0px;
+}
 #articles article footer {
   /*background-color: rgba(0,0,0,.8);*/
 
   margin-left: 0;
   color: #ec008c;
-  height: 60px;
-}
-#articles article footer .tags {
-  margin-top: 20px;
 }
 #articles article footer .tags a:hover {
   color: #045056;
 }
 #articles article footer time {
-  display: block;
+  display: inline;
   cursor: default;
 }
 #articles article#singleton {
@@ -674,12 +683,11 @@ body > header nav ul a:hover {
   height: auto;
   margin-bottom: 20px;
 }
-
 #articles article#singleton h2 {
   margin-top: 20px;
 }
 #articles article#singleton h1 {
-  margin-top:0px;
+  margin-top: 0px;
 }
 #articles article#singleton img.left + p + h2 {
   margin-top: 60px;
@@ -689,10 +697,19 @@ body > header nav ul a:hover {
 }
 #articles nav {
   margin-top: 40px;
-  margin-left: 80px;
+  margin-left: 20px;
   margin-right: 60px;
+  /*.olderPostButton {
+            float: right;
+        }
+
+        .newerPostButton {
+            float: left;
+        }*/
+
 }
 #articles nav a {
+  float: right;
   font-family: "museo-sans", sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -708,21 +725,18 @@ body > header nav ul a:hover {
 #articles nav a:hover {
   background-color: #e51791;
 }
-#articles nav .olderPostButton {
-  float: right;
-}
-#articles nav .newerPostButton {
+#articles nav > a {
   float: left;
 }
 /* Sidebar */
 #sidebar {
-  float: right;
   width: 336px;
+  float: left;
   padding-left: 60px;
   padding-right: 20px;
   padding-bottom: 20px;
   background-color: #ffffff;
-  height: auto;
+  height: 100%;
 }
 #sidebar div {
   margin-bottom: 20px;
@@ -805,7 +819,7 @@ body > header nav ul a:hover {
   display: block;
   background-color: #222222;
   margin-bottom: 40px;
-  margin-left: 80px;
+  margin-left: 20px;
   margin-top: 40px;
 }
 /* Comments `*/
@@ -874,17 +888,150 @@ body > footer {
   font-weight: 300;
   font-weight: 500;
   margin-top: 100px;
-  clear:both;
+  clear: both;
 }
 body > footer a {
   margin-right: 40px;
   font-family: "museo-sans", sans-serif;
   font-style: normal;
   font-weight: 300;
-
 }
 .ancientHelper {
   display: none;
+}
+/* Larger Size */
+@media only screen and (min-width: 1085px) {
+  body > header {
+    padding-left: 80px;
+  }
+  #articles article {
+    height: 300px;
+  }
+  #articles article .postInfo {
+    margin-left: 80px;
+    float: left;
+    width: 30%;
+  }
+  #articles article .postInfo footer .tags {
+    margin-top: 20px;
+  }
+  #articles article .postInfo footer time {
+    display: block;
+  }
+  #articles article .postSample {
+    width: 55%;
+    float: left;
+  }
+  #articles nav {
+    margin-left: 80px;
+  }
+  #leaderboard {
+    margin-left: 80px;
+  }
+}
+@media only screen and (max-width: 758px) {
+  body > header {
+    height: auto;
+  }
+  body > header nav {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    float: left;
+    width: 100%;
+  }
+  body > header nav ul {
+    float: left;
+  }
+  body > header nav ul li {
+    display: inline;
+  }
+  body > header nav ul li a,
+  body > header nav ul li a:hover,
+  body > header nav ul li a:visited {
+    line-height: 20px;
+  }
+  #articles {
+    width: 382px;
+    width: -webkit-calc(100% - 336px - 40px);
+    width: calc(100% - 336px - 40px);
+  }
+  #sidebar {
+    padding-left: 20px;
+  }
+}
+/* Mobile Width */
+@media only screen and (max-width: 640px) {
+  #socialButtonsMobile {
+    display: block;
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+  #socialButtonsMobile a {
+    margin-right: 20px;
+  }
+  body > header {
+    margin-top: 10px;
+    /*padding-left: @gutter;*/
+  
+  }
+  body > header a,
+  body > header a:hover,
+  body > header a:visited {
+    line-height: 40px;
+  }
+  body > header nav {
+    margin-top: 20px;
+  }
+  #sidebar {
+    margin-left: 20px;
+    padding-left: 0px;
+  }
+  #articles {
+    float: left;
+    width: 100%;
+  }
+  #articles article {
+    height: auto;
+    margin-bottom: 20px;
+  }
+  #articles article .postInfo h2 {
+    margin-bottom: 10px;
+  }
+  #articles article .postInfo footer {
+    height: auto;
+  }
+  #articles article .postInfo footer time {
+    display: inline;
+  }
+  #articles article .postInfo footer .tags {
+    display: inline;
+    margin-left: 40px;
+  }
+  #articles article .postSample {
+    float: none;
+    margin-top: 5px;
+    width: 100%;
+  }
+  #articles article .postSample section {
+    padding-right: 40px;
+  }
+  #articles nav {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  #leaderboard {
+    display: none;
+  }
+  body > footer {
+    margin-top: 20px;
+    height: auto;
+    line-height: normal;
+    padding-bottom: 20px;
+  }
+  body > footer label {
+    margin-top: 20px;
+    display: inline-block;
+  }
 }
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.
@@ -963,6 +1110,7 @@ body > footer a {
     background: transparent !important;
     color: black !important;
     box-shadow: none !important;
+    -webkit-text-shadow: none !important;
     text-shadow: none !important;
     filter: none !important;
     -ms-filter: none !important;
