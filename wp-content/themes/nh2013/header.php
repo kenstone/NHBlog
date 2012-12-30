@@ -62,7 +62,9 @@
                 <li><a href="/about" title="about">About</a></li>
             </ul>
         </nav>
-
+        <div id="socialButtonsMobile">
+           <?php get_social_buttons(); ?>
+        </div>
 
     </header>
    
