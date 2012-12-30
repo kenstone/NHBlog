@@ -13,8 +13,6 @@
   General comments (optional).
   */
 
-
-
 /*
  * HTML5 Boilerplate
  *
@@ -982,6 +980,12 @@ body > footer a {
   body > header nav {
     margin-top: 20px;
   }
+  body > header nav ul li {
+    margin-right: 13.333333333333334px;
+  }
+  body > header nav ul li:last-child {
+    margin-right: 0;
+  }
   #sidebar {
     margin-left: 20px;
     padding-left: 0px;
@@ -996,16 +1000,16 @@ body > footer a {
   }
   #articles article .postInfo h2 {
     margin-bottom: 10px;
+    padding-right: 20px;
   }
   #articles article .postInfo footer {
     height: auto;
   }
   #articles article .postInfo footer time {
-    display: inline;
+    display: block;
   }
   #articles article .postInfo footer .tags {
     display: inline;
-    margin-left: 40px;
   }
   #articles article .postSample {
     float: none;
