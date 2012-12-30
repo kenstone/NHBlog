@@ -97,6 +97,21 @@ function nhthirteen_get_featured_source() {
 
 endif;
 
+if (! function_exists('get_social_buttons')) :
+
+	function get_social_buttons() {
+		 <a href="http://twitter.com/kenstone" title="Follow me on Twitter">
+                <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/twitter.gif" alt="click to view my twitter feed" /></a>
+            <a href="http://notebookheavy.com/feed/" title="Grab my RSS feed">
+                <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/rss.gif" alt="click to subscribe to my RSS feed" /></a>
+            <a href="/contact" title="Contact me">
+                <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/mail.gif" alt="click to contact me via email" /></a>
+
+	}
+
+endif;
+
+
 /* Helper function used to increase the length of the except shown on the front page.
  */
 function custom_excerpt_length( $length ) {

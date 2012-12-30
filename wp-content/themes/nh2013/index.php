@@ -8,7 +8,7 @@
 
 get_header(); ?>
  <div id="main">
-	<?php get_sidebar(); ?>
+	
 		<section id="articles">
 
 
@@ -19,7 +19,7 @@ get_header(); ?>
 	      <?php nhthirteen_content_nav(); ?>
 
 		</section>
-
+<?php get_sidebar(); ?>
 
 </div>
 

@@ -16,12 +16,7 @@
                 <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/headshot.jpg" /></a>
         </div>
         <div id="socialButtons">
-            <a href="http://twitter.com/kenstone" title="Follow me on Twitter">
-                <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/twitter.gif" alt="click to view my twitter feed" /></a>
-            <a href="http://notebookheavy.com/feed/" title="Grab my RSS feed">
-                <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/rss.gif" alt="click to subscribe to my RSS feed" /></a>
-            <a href="/contact" title="Contact me">
-                <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/mail.gif" alt="click to contact me via email" /></a>
+           <?php get_social_buttons(); ?>
         </div>
 
     </div>
