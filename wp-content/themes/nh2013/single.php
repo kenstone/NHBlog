@@ -13,7 +13,7 @@ get_header(); ?>
 
 	</div>
 
-	<?php get_sidebar(); ?>
+	
 	<?php while ( have_posts() ) : the_post(); ?>
 		<section id="articles">
 		        <article id="singleton">
@@ -22,7 +22,7 @@ get_header(); ?>
 				</article>
 		</section>
     <?php endwhile; // end of the loop. ?>
-
+	<?php get_sidebar(); ?>
  	<div id="leaderboard">
         
     </div>

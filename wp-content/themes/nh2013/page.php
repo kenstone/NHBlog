@@ -15,7 +15,7 @@
 get_header(); ?>
 
 <div id="main">
-	<?php get_sidebar(); ?>
+	
 
 	<section id="articles">
 		<article id="singleton">
@@ -25,6 +25,7 @@ get_header(); ?>
 		<?php endwhile; // end of the loop. ?>
 		</article>
 	</section>
+	<?php get_sidebar(); ?>
 </div>
 
 
