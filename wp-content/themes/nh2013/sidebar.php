@@ -38,4 +38,11 @@
         
 
     </div>
+    <?php if (is_single()) {
+        
+        $instance = array("title" => "Recent Posts", "number" => 5);
+        the_widget('WP_Widget_Recent_Posts', $instance); ?>
+    }
+
+    ?>
 </section>

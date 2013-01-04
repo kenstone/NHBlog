@@ -23,14 +23,13 @@ get_header(); ?>
 		</section>
     <?php endwhile; // end of the loop. ?>
 	<?php get_sidebar(); ?>
- 	<div id="leaderboard">
+</div>
+ 	<div id="leaderboard" class="singleton">
         
     </div>
     <?php comments_template( '', true ); ?>
-</div>
+
+
 
 <?php get_footer(); ?>
 
-<script src="//dadchartsstorage.blob.core.windows.net/nhblogjs/shCore.js"></script>
-<script src="//dadchartsstorage.blob.core.windows.net/nhblogjs/shBrushCSharp.js"></script>
-<script type="text/javascript">SyntaxHighlighter.all();</script>
