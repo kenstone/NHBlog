@@ -143,7 +143,7 @@ function nhthirteen_comment( $comment, $args, $depth ) {
 		// Display trackbacks differently than normal comments.
 	?>
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-		<p><?php _e( 'Pingback:', 'twentytwelve' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( 'Edit', '<span class="edit-link">', '</span>' ); ?></p>
+		<p><?php _e( 'Pingback:', 'nhthirteen' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( 'Edit', '<span class="edit-link">', '</span>' ); ?></p>
 	<?php
 			break;
 		default :
@@ -161,11 +161,12 @@ function nhthirteen_comment( $comment, $args, $depth ) {
 						// If current post author is also comment author, make it known visually.
 						( $comment->user_id === $post->post_author ) ? '<span> ' . 'Post author' . '</span>' : ''
 					);
-					printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
+					printf( '<a href="%1$s"><time datetime="%2$s">%3$s</time><time class="mobile" datetime="%2$s">%4$s</time></a>',
 						esc_url( get_comment_link( $comment->comment_ID ) ),
 						get_comment_time( 'c' ),
 						/* translators: 1: date, 2: time */
-						sprintf( '%1$s at %2$s', get_comment_date(), get_comment_time() )
+						sprintf( '%1$s at %2$s', get_comment_date(), get_comment_time() ),
+						sprintf( '%1$s %2$s', get_comment_date("Y-m-d"), get_comment_time())
 					);
 				?>
 			</header><!-- .comment-meta -->

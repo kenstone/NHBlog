@@ -21,7 +21,7 @@
 
     </div>
     <div id="bio">
-        <a href="/about" title="About Dave Iffland"><h3>About Dave</h3></a>
+        
         <div>
             Dave Iffland is a blogger, speaker, dad, hubby, and indie developer. He is the founder of Heavy Code, LLC and is passionate about
             web development.
