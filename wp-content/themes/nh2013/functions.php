@@ -122,6 +122,10 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+function paragraph_indent($atts, $content = null) {
+	return '<p class="indent">'.$content.'</p>';
+}
+add_shortcode("indent", "paragraph_indent");
 
 
 if ( ! function_exists( 'nhthirteen_comment' ) ) :
