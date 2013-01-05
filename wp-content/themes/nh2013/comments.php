@@ -40,7 +40,7 @@ if ( post_password_required() )
 		 * But we only want the note on posts and pages that had comments in the first place.
 		 */
 		if ( ! comments_open() && get_comments_number() ) : ?>
-		<p class="nocomments"><?php _e( 'Comments are closed.' , 'twentytwelve' ); ?></p>
+		<p class="nocomments"><?php _e( 'Comments are closed.' , 'nhthirteen' ); ?></p>
 		<?php endif; ?>
 
 	<?php endif; // have_comments() ?>
@@ -48,7 +48,7 @@ if ( post_password_required() )
 		$fields = array(
 			'title_reply' => 'Reply',
 			'title_reply_to' => 'Reply to %s',
-			'label_submit' => 'Post Comment!',
+			'label_submit' => 'Post Comment',
 			'fields' => apply_filters( 'comment_form_default_fields', array(
 				'author' => '<p class="comment-form-author">' . '<label for="author" class="ancientHelper">Your Name</label><input id="author" name="author" type="text" placeholder="Your Name" required="required" value="' . esc_attr( $commenter['comment_author'] ) . '" ' . $aria_req . ' /></p>',
 			'email' => '<p class="comment-form-email"><label for="email" class="ancientHelper">Your Email</label><input id="email" name="email" type="email" placeholder="Your Email" required="required" value="' . esc_attr(  $commenter['comment_author_email'] ) . '"' . $aria_req . ' /></p>',
