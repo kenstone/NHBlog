@@ -10,12 +10,15 @@
  */
 ?>
 <section id="sidebar">
+    <div>
+       <?php get_search_form( $echo ); ?>
+    </div>
     <div class="clearfix">
         <div id="headshot">
             <a href="/about">
                 <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/headshot.jpg" /></a>
         </div>
-        <div id="socialButtons">
+        <div id="socialButtons">    
            <?php get_social_buttons(); ?>
         </div>
 
@@ -27,9 +30,7 @@
             web development.
         </div>
     </div>
-    <div>
-       <?php get_search_form( $echo ); ?>
-    </div>
+
   
     <div id="ad1">
         
