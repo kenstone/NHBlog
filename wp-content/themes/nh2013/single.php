@@ -20,15 +20,18 @@ get_header(); ?>
 		        	<h1><?php the_title(); ?></h1>
 		        	<?php the_content(); ?>
 				</article>
+
+				<div id="leaderboard" class="singleton"	>
+        
+    			</div>
+    			<?php comments_template( '', true ); ?>
+
 		</section>
+
     <?php endwhile; // end of the loop. ?>
 	<?php get_sidebar(); ?>
-</div>
- 	<div id="leaderboard" class="singleton">
-        
-    </div>
-    <?php comments_template( '', true ); ?>
 
+</div>
 
 
 <?php get_footer(); ?>
