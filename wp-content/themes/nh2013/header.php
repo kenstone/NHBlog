@@ -41,7 +41,7 @@
     <meta name="msapplication-TileColor" content="#9e1166"/> 
     <meta name="msapplication-TileImage" content="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh.png"/> 
 
-    <link rel="shortcut icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh-favico.png" />
+    <link rel="shortcut icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh2013.ico" />
     <link rel="apple-touch-icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh-apple.png" />
     
 
