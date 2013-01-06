@@ -10,7 +10,9 @@
 
 <article id="post-<?php the_ID(); ?>">
     <div style="background-image: url(<?php echo nhthirteen_get_sliver_source() ?>)" class="sliver">
-    	<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( 'Permalink to %s', the_title_attribute( 'echo=0' )  ) ); ?>" rel="bookmark">&nbsp;</a>
+        <div class="blackOverlay">
+    	   <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( 'Permalink to %s', the_title_attribute( 'echo=0' )  ) ); ?>" rel="bookmark">&nbsp;</a>
+        </div>
     </div>
     <div class="postInfo">
         <h2><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( 'Permalink to %s', the_title_attribute( 'echo=0' )  ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
