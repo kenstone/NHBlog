@@ -28,11 +28,22 @@
 	<meta name="author" content="David Iffland" />
 	<meta name="copyright" content="David Iffland" />
 
+    <meta name="msvalidate.01" content="2AEC1661F41A33829C241596C37C4E79" />
+    <meta name="google-site-verification" content="JwzLQeu_nXodSwIGi85ocuqwah4WFZp0qxPGgVUeO3s" />
+
+
     <meta name="description" content="">
 
     <link rel="me" type="text/html" href="http://plus.google.com/117442799415877949162" />
     <link rel="me" type="text/html" href="http://twitter.com/kenstone"> 
 
+    <meta name="application-name" content=" Notebook Heavy"/> 
+    <meta name="msapplication-TileColor" content="#9e1166"/> 
+    <meta name="msapplication-TileImage" content="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh.png"/> 
+
+    <link rel="shortcut icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh-favico.png" />
+    <link rel="apple-touch-icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh-apple.png" />
+    
 
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
     <meta name="viewport" content="width=device-width">
