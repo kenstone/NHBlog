@@ -128,6 +128,25 @@ function paragraph_indent($atts, $content = null) {
 add_shortcode("indent", "paragraph_indent");
 
 
+function paragraph_endcall($atts, $content = null) {
+	return '<p class="endCall">'.$content.'</p>';
+}
+
+add_shortcode("endcall", "paragraph_endcall");
+
+function render_code($atts, $content = null) {
+
+	extract(shortcode_atts(array(  
+	        "type" => 'csharp'  
+	    ), $atts));  
+
+	return '<pre class="brush: '.$type.'">'.$content.'</pre>';
+
+}
+
+add_shortcode("code", "render_code");
+
+
 if ( ! function_exists( 'nhthirteen_comment' ) ) :
 /**
  * Template for comments and pingbacks.
