@@ -50,7 +50,7 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-    <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Feed" href="http://notebookheavy.com/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Feed" href="http://feeds.feedburner.com/notebookheavy" />
     <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Comments Feed" href="http://notebookheavy.com/comments/feed/" />
 
     <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
