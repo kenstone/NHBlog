@@ -41,7 +41,7 @@
     <meta name="msapplication-TileColor" content="#9e1166"/> 
     <meta name="msapplication-TileImage" content="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh.png"/> 
 
-    <link rel="shortcut icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh-favico.png" />
+    <link rel="shortcut icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh2013.ico" />
     <link rel="apple-touch-icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh-apple.png" />
     
 
@@ -50,7 +50,7 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-    <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Feed" href="http://notebookheavy.com/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Feed" href="http://feeds.feedburner.com/notebookheavy" />
     <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Comments Feed" href="http://notebookheavy.com/comments/feed/" />
 
     <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
