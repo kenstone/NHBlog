@@ -16,7 +16,7 @@
     <div class="clearfix">
         <div id="headshot">
             <a href="/about">
-                <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/headshot.jpg" /></a>
+                <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/headshot.jpg" alt="Dave Iffland Headshot" /></a>
         </div>
         <div id="socialButtons">    
            <?php get_social_buttons(); ?>

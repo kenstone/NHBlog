@@ -32,7 +32,7 @@
     <meta name="google-site-verification" content="JwzLQeu_nXodSwIGi85ocuqwah4WFZp0qxPGgVUeO3s" />
 
 
-    <meta name="description" content="">
+    <meta name="description" content="Dave Iffland writes about living and programming while raising two kids.">
 
     <link rel="me" type="text/html" href="http://plus.google.com/117442799415877949162" />
     <link rel="me" type="text/html" href="http://twitter.com/kenstone"> 
@@ -63,7 +63,9 @@
 </head>
 <body>
     <header class="clearfix">
-        <a href="/" title="Notebook Heavy">NOTEBOOK HEAVY</a>
+        <h1>
+            <a href="/" title="Notebook Heavy">NOTEBOOK HEAVY</a>
+        </h1>
         <nav>
             <ul>
                 <li>
