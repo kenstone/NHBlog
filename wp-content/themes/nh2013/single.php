@@ -1,3 +1,5 @@
+<?php while ( have_posts() ) : the_post(); ?>
+
 <?php
 /**
  *
@@ -14,7 +16,7 @@ get_header(); ?>
 	</div>
 
 	
-	<?php while ( have_posts() ) : the_post(); ?>
+	
 		<section id="articles">
 		        <article id="singleton">
 		        	<h1><?php the_title(); ?></h1>
@@ -38,11 +40,11 @@ get_header(); ?>
 
 		</section>
 
-    <?php endwhile; // end of the loop. ?>
+    
 	<?php get_sidebar(); ?>
 
 </div>
 
-
+<?php endwhile; // end of the loop. ?>
 <?php get_footer(); ?>
 
