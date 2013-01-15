@@ -34,7 +34,7 @@
 
     <meta name="description" content="<?php 
         if (is_single()) {
-            the_excerpt();
+            echo get_the_excerpt();
         }
         else { ?>
             Dave Iffland writes about living and programming while raising two kids.
