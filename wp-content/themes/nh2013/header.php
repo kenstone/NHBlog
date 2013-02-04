@@ -34,7 +34,7 @@
 
     <meta name="description" content="<?php 
         if (is_single()) {
-            the_excerpt();
+            echo get_the_excerpt();
         }
         else { ?>
             Dave Iffland writes about living and programming while raising two kids.
@@ -75,10 +75,10 @@
         <nav>
             <ul>
                 <li>
-                    <a href="/category/words" title="words">Words</a>
+                    <a href="/category/words/" title="words">Words</a>
                 </li>
-                <li><a href="/category/code" title="code">Code</a></li>
-                <li><a href="/about" title="about">About</a></li>
+                <li><a href="/category/code/" title="code">Code</a></li>
+                <li><a href="/about/" title="about">About</a></li>
             </ul>
         </nav>
         <div id="socialButtonsMobile">
