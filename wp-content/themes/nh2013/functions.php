@@ -102,7 +102,7 @@ if (! function_exists('get_social_buttons')) :
 
 	function get_social_buttons() {
 		?>
-		 <a href="http://twitter.com/kenstone" title="Follow me on Twitter">
+		 <a href="http://twitter.com/daveiffland" title="Follow me on Twitter">
                 <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/twitter.gif" alt="click to view my twitter feed" /></a>
             <a href="http://feeds.feedburner.com/notebookheavy" title="Grab my RSS feed">
                 <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/rss.gif" alt="click to subscribe to my RSS feed" /></a>
