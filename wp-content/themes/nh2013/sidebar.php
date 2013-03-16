@@ -26,11 +26,14 @@
     <div id="bio">
         
         <div>
-            Dave Iffland is a blogger, speaker, dad, hubby, and indie developer. He is the founder of Heavy Code, LLC and is passionate about
+            Dave Iffland is a blogger, speaker, dad, hubby, and creator of <a href="http://www.momcharts.com" title="MomCharts">MomCharts</a>. He is the founder of Heavy Code, LLC and is passionate about
             web development.
         </div>
     </div>
 
+    <div id="mombio">
+        <a href="http://www.momcharts.com" title="MomCharts.com"><img src="https://dadchartsstorage.blob.core.windows.net/nhblogimage/mc-prep-stripes-blog-336x168.png" alt="Mom Charts" title="Visit Mom Charts"/></a>
+    </div>
   
     <div id="ad1">
       <script type="text/javascript"><!--
