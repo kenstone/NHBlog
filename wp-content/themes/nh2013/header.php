@@ -45,10 +45,10 @@
 
     <meta name="application-name" content=" Notebook Heavy"/> 
     <meta name="msapplication-TileColor" content="#9e1166"/> 
-    <meta name="msapplication-TileImage" content="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh.png"/> 
+    <meta name="msapplication-TileImage" content="//az415353.vo.msecnd.net/nhblogimage/nh.png"/> 
 
-    <link rel="shortcut icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh2013.ico" />
-    <link rel="apple-touch-icon" href="//dadchartsstorage.blob.core.windows.net/nhblogimage/nh-apple.png" />
+    <link rel="shortcut icon" href="//az415353.vo.msecnd.net/nhblogimage/nh2013.ico" />
+    <link rel="apple-touch-icon" href="//az415353.vo.msecnd.net/nhblogimage/nh-apple.png" />
     
 
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
@@ -62,7 +62,7 @@
     <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
     <script type="text/javascript" src="//use.typekit.net/iis6ajs.js"></script>
     <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
-    <script src="//dadchartsstorage.blob.core.windows.net/nhblogjs/modernizr-2.5.3.min.js"></script>
+    <script src="//az415353.vo.msecnd.net/nhblogjs/modernizr-2.5.3.min.js"></script>
 
 
     <?php wp_head(); ?>
