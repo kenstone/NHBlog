@@ -37,11 +37,11 @@
             echo get_the_excerpt();
         }
         else { ?>
-            Dave Iffland writes about living and programming while raising two kids.
+            Dave Iffland writes about living and programming, raising two kids, and building a startup.
         <?php } ?>">
 
     <link rel="me" type="text/html" href="http://plus.google.com/117442799415877949162" />
-    <link rel="me" type="text/html" href="http://twitter.com/kenstone"> 
+    <link rel="me" type="text/html" href="http://twitter.com/daveiffland"> 
 
     <meta name="application-name" content=" Notebook Heavy"/> 
     <meta name="msapplication-TileColor" content="#9e1166"/> 

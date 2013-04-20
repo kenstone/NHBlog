@@ -16,7 +16,7 @@
     <div class="clearfix">
         <div id="headshot">
             <a href="/about">
-                <img src="//dadchartsstorage.blob.core.windows.net/nhblogimage/headshot.jpg" alt="Dave Iffland Headshot" /></a>
+                <img src="//az415353.vo.msecnd.net/nhblogimage/headshot.jpg" alt="Dave Iffland Headshot" /></a>
         </div>
         <div id="socialButtons">    
            <?php get_social_buttons(); ?>
@@ -32,7 +32,7 @@
     </div>
 
     <div id="mombio">
-        <a href="http://www.momcharts.com" title="MomCharts.com"><img src="https://dadchartsstorage.blob.core.windows.net/nhblogimage/mc-prep-stripes-blog-336x168.png" alt="Mom Charts" title="Visit Mom Charts"/></a>
+        <a href="http://www.momcharts.com" title="MomCharts.com"><img src="//az415353.vo.msecnd.net/nhblogimage/mc-prep-stripes-blog-336x168.png" alt="Mom Charts" title="Visit Mom Charts"/></a>
     </div>
   
     <div id="ad1">
