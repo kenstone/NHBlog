@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
     font-family: 'MonacoRegular';
     src: url('monaco/monaco-webfont.eot');
     src: url('monaco/monaco-webfont.eot?#iefix') format('embedded-opentype'),
@@ -8,7 +8,9 @@
     font-weight: normal;
     font-style: normal;
 }
-
+*/
 .crayon-font-monaco * {
-    font-family: Monaco, 'MonacoRegular', 'Courier New', monospace !important;
+    font-family: "source-code-pro",sans-serif !important;
+	font-style: normal !important;
+	font-weight: 400 !important;
 }
