@@ -36,19 +36,6 @@
       })();
 
     </script>
-
-    <?php
-        if (is_single()) : ?>
-            <script src="//az415353.vo.msecnd.net/nhblogjs/shCore.js"></script>
-            <script src="//az415353.vo.msecnd.net/nhblogjs/shBrushCSharp.js"></script>
-            <script src="//az415353.vo.msecnd.net/nhblogjs/shBrushJScript.js"></script>
-            <script src="//az415353.vo.msecnd.net/nhblogjs/shBrushXml.js"></script>
-
-            <script type="text/javascript">SyntaxHighlighter.all();</script>
-        <?php endif; ?>
-
         
-        
-    
 </body>
 </html>
