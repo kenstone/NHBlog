@@ -36,5 +36,13 @@
 
     </script>
 
+    <?php
+        if (is_single()) : ?>
+            <script src="//az415353.vo.msecnd.net/nhblogjs/crayon.min.js"></script>
+
+            <script type="text/javascript">SyntaxHighlighter.all();</script>
+        <?php endif; ?>
+
+
 </body>
 </html>
