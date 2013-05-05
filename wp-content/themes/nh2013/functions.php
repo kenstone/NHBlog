@@ -39,6 +39,11 @@ function nhthirteen_scripts_styles() {
 
 	wp_enqueue_style( 'nh-style', get_stylesheet_uri() );
 
+
+	if ( is_singular() ) {
+		wp_enqueue_style( 'crayon', '//az415353.vo.msecnd.net/nhblogcss/crayon.min.css' );
+	}
+
 }
 
 add_action( 'wp_enqueue_scripts', 'nhthirteen_scripts_styles' );

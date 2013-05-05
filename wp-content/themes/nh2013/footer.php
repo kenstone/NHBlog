@@ -38,7 +38,7 @@
 
     <?php
         if (is_single()) : ?>
-            <script src="//az415353.vo.msecnd.net/nhblogjs/crayon.min.js"></script>
+            <!--<script src="//az415353.vo.msecnd.net/nhblogjs/crayon.min.js"></script>-->
         <?php endif; ?>
 
 
