@@ -41,7 +41,7 @@ function nhthirteen_scripts_styles() {
 
 
 	if ( is_singular() ) {
-		wp_enqueue_style( 'syntaxhighlighter', '//dadchartsstorage.blob.core.windows.net/nhblogcss/shCoreDefault.css' );
+		wp_enqueue_style( 'syntaxhighlighter', '//az415353.vo.msecnd.net/nhblogcss/shCoreDefault.css' );
 	}
 
 }
