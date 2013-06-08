@@ -76,6 +76,9 @@
         <nav>
             <ul>
                 <li>
+                    <a href="/category/life/" title="life">Life</a>
+                </li>
+                <li>
                     <a href="/category/words/" title="words">Words</a>
                 </li>
                 <li><a href="/category/code/" title="code">Code</a></li>
