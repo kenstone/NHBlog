@@ -61,6 +61,7 @@ if ( ! class_exists( 'RSSFooter_Admin' ) ) {
 								"content" => '<p>'.__('You can use the following variables within the content, they will be replaced by the value on the right.', 'rss-footer').'</p>'.
 								'<ul>'.
 								'<li><strong>%%POSTURI%%</strong> : '.__('The URL of the post, to be used in a cusstom anchor tag', 'rss-footer').'</li>'.
+								'<li><strong>%%POSTTITLE%%</strong> : '.__('The Title of the post.').'</li>'.
 								'<li><strong>%%POSTLINK%%</strong> : '.__('A link to the post, with the title as anchor text.', 'rss-footer').'</li>'.
 								'<li><strong>%%BLOGLINK%%</strong> : '.__("A link to your site, with your site's name as anchor text.", 'rss-footer').'</li>'.
 								'<li><strong>%%BLOGDESCLINK%%</strong> : '.__("A link to your site, with your site's name and description as anchor text.", 'rss-footer').'</li>'.
@@ -76,6 +77,7 @@ if ( ! class_exists( 'RSSFooter_Admin' ) ) {
 									var text = jQuery("#footerstring").val();
 									text = text.replace("%%POSTLINK%%","<a href=#>Test post</a>");
 									text = text.replace("%%POSTURI%%", "#");
+									text = text.replace("%%POSTTITLE%%", "Post Title");
 									text = text.replace("%%BLOGLINK%%","<a href=\''.get_bloginfo('url').'\'>'.get_bloginfo('name').'</a>");
 									text = text.replace("%%BLOGDESCLINK%%","<a href=\''.get_bloginfo('url').'\'>'.get_bloginfo('name').' - '.get_bloginfo('description').'</a>");
 									jQuery("#preview").html(nl2br(text));									
@@ -147,6 +149,7 @@ function embed_rssfooter($content) {
 		
 		$rssfootcontent = stripslashes($options['footerstring']);
 		$rssfootcontent = str_replace("%%POSTURI%%", get_permalink());
+		$rssfootcontent = str_replace("%%POSTTITLE%%", get_the_title());
 		$rssfootcontent = str_replace("%%POSTLINK%%",$postlink,$rssfootcontent);
 		$rssfootcontent = str_replace("%%BLOGLINK%%",$bloglink,$rssfootcontent);		
 		$rssfootcontent = str_replace("%%BLOGDESCLINK%%",$blogdesclink,$rssfootcontent);		
