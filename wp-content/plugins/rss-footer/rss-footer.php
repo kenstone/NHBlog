@@ -148,8 +148,8 @@ function embed_rssfooter($content) {
 		$blogdesclink = '<a href="'.get_bloginfo('url').'">'.get_bloginfo('name').' - '.get_bloginfo('description').'</a>';
 		
 		$rssfootcontent = stripslashes($options['footerstring']);
-		$rssfootcontent = str_replace("%%POSTURI%%", get_permalink());
-		$rssfootcontent = str_replace("%%POSTTITLE%%", get_the_title());
+		$rssfootcontent = str_replace("%%POSTURI%%", get_permalink(), $rssfootcontent);
+		$rssfootcontent = str_replace("%%POSTTITLE%%", get_the_title(), $rssfootcontent);
 		$rssfootcontent = str_replace("%%POSTLINK%%",$postlink,$rssfootcontent);
 		$rssfootcontent = str_replace("%%BLOGLINK%%",$bloglink,$rssfootcontent);		
 		$rssfootcontent = str_replace("%%BLOGDESCLINK%%",$blogdesclink,$rssfootcontent);		
