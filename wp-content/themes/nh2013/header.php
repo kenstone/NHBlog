@@ -37,7 +37,9 @@
             echo get_the_excerpt();
         }
         else { ?>
-            Dave Iffland writes about living and programming, raising two kids, and building a startup.
+            Notebook Heavy is a blog about the lives of programmers, coders, developers, engineers, and other words for techie people.
+            What is life for a programmer outside of work? We've got hard-core technical posts, motivation, and original content about
+            interesting products. Life is more than code.
         <?php } ?>">
 
     <link rel="me" type="text/html" href="http://plus.google.com/117442799415877949162" />
