@@ -61,6 +61,8 @@
     <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Feed" href="http://feeds.feedburner.com/notebookheavy" />
     <link rel="alternate" type="application/rss+xml" title="Notebook Heavy &raquo; Comments Feed" href="http://notebookheavy.com/comments/feed/" />
 
+    <?php wp_head(); ?>
+
     <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
     <script type="text/javascript" src="//use.typekit.net/iis6ajs.js"></script>
     <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
@@ -68,7 +70,7 @@
  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-    <?php wp_head(); ?>
+
 </head>
 <body>
     <header class="clearfix">
