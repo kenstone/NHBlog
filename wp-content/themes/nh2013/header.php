@@ -43,7 +43,7 @@
     <link rel="me" type="text/html" href="http://plus.google.com/117442799415877949162" />
     <link rel="me" type="text/html" href="http://twitter.com/daveiffland"> 
 
-    <meta name="application-name" content=" Notebook Heavy"/> 
+    <meta name="application-name" content="Notebook Heavy"/>
     <meta name="msapplication-TileColor" content="#9e1166"/> 
     <meta name="msapplication-TileImage" content="//az415353.vo.msecnd.net/nhblogimage/nh.png"/> 
 
