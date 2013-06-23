@@ -1,6 +1,7 @@
 wp-content/uploads
 wp-config.php
 robots.txt
+web.config
 
 #################
 ## WebStorm
