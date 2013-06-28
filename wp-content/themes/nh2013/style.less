@@ -816,11 +816,14 @@ body > header {
                 margin-top: 0px;
             }
 
-            img.left {
-                &+p + h2 {
-                    margin-top: @gutter * 3;
-                }
+          img {
+            max-width: 100%;
+            &.left {
+              &+p + h2 {
+                margin-top: @gutter * 3;
+              }
             }
+          }
         }
 
         article:last-of-type {
