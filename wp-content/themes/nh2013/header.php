@@ -69,6 +69,7 @@
     <script src="//az415353.vo.msecnd.net/nhblogjs/modernizr-2.5.3.min.js"></script>
  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
 </head>

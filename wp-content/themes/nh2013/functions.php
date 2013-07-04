@@ -52,6 +52,164 @@ add_action( 'wp_enqueue_scripts', 'nhthirteen_scripts_styles' );
 add_filter( 'next_posts_link_attributes', ' title="Older Posts" class="olderPostButton clearfix"');
 add_filter( 'previous_posts_link_attributes', 'title="Newer Posts" class="newerPostButton"');
 
+
+if (!function_exists('get_ad_section')) :
+
+function get_ad_section() {
+	$adIndex = rand(0,6);
+	switch ($adIndex) {
+		case 0:
+			$adSection = get_ad_one();
+			$adSection += get_momcharts_ad();
+			$adSection += get_ad_two();
+			return $adSection;
+			break;
+		case 1:
+			$adSection = get_ad_one();
+			$adSection += get_ad_three();
+			$adSection += get_momcharts_ad();
+			return $adSection;
+			break;
+		case 2:
+			$adSection = get_momcharts_ad();
+			$adSection += get_ad_two();
+			$adSection += get_ad_three();
+			return $adSection;
+			break;
+		case 3:
+			$adSection = get_ad_three();
+			$adSection += get_momcharts_ad();
+			$adSection += get_ad_one();
+			return $adSection;
+			break;
+		case 4:
+			$adSection = get_ad_one();
+			$adSection += get_ad_four();
+			$adSection += get_momcharts_ad();
+			return $adSection;
+			break;
+		case 5:
+			$adSection = get_ad_four();
+			$adSection += get_ad_one();
+			$adSection += get_momcharts_ad();
+			return $adSection;
+			break;
+		case 6:
+			$adSection = get_ad_one();
+			$adSection += get_momcharts_ad();
+			$adSection += get_ad_four();
+			return $adSection;
+			break;
+		default:
+			
+			break;
+	}
+}
+
+endif;
+
+if (!function_exists('get_ad_one')) :
+
+/**
+ * Displays the first adsense ad. In this case it is a large square.
+ * @since NH2013 1.1
+ */
+function get_ad_one() { ?>
+<div class="ad1">
+	<ins class="adsbygoogle"
+	     style="display:inline-block;width:336px;height:280px"
+	     data-ad-client="ca-pub-0038909073879850"
+	     data-ad-slot="9586690583"></ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+	<?php
+}
+
+endif;
+
+if (!function_exists('get_ad_two')) :
+
+/**
+ * Displays the second adsense ad. In this case it is a large square.
+ * @since NH2013 1.1
+ */
+function get_ad_two() { ?>
+	<div class="ad1">
+		<ins class="adsbygoogle"
+			     style="display:inline-block;width:336px;height:280px"
+			     data-ad-client="ca-pub-0038909073879850"
+			     data-ad-slot="3583619786"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+	<?php
+}
+
+endif;
+
+if (!function_exists('get_ad_three')) :
+
+/**
+ * Displays the third adsense ad. In this case, it's a large skyscraper.
+ * @Since NH2013 1.1
+ */
+function get_ad_three() { ?>
+<div class="ad1">
+	<ins class="adsbygoogle"
+	     style="display:inline-block;width:300px;height:600px"
+	     data-ad-client="ca-pub-0038909073879850"
+	     data-ad-slot="3245542588"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+
+<?php
+}
+
+endif;
+
+if (!function_exists('get_ad_four')) :
+
+/**
+ * Displays the fourth adsense ad. In thise case, it's a thin skyscraper.
+ * @Since NH2013 1.1
+ */
+function get_ad_four() { ?>
+
+<div class="ad1">
+	<ins class="adsbygoogle"
+	     style="display:inline-block;width:160px;height:600px"
+	     data-ad-client="ca-pub-0038909073879850"
+	     data-ad-slot="2063423787"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+
+<?php
+}
+
+endif;
+
+if (!function_exists('get_momcharts_ad')) : 
+
+function get_momcharts_ad() { ?>
+
+    <div id="mombio">
+        <a href="http://www.momcharts.com" title="MomCharts.com"><img src="//az415353.vo.msecnd.net/nhblogimage/mc-prep-stripes-blog-336x168.png" alt="Mom Charts" title="Visit Mom Charts"/></a>
+    </div>
+
+
+<?php
+}
+
+endif;
+
+
 if ( ! function_exists( 'nhthirteen_content_nav' ) ) :
 /**
  * Displays navigation to next/previous pages when applicable.

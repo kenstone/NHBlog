@@ -31,37 +31,10 @@
         </div>
     </div>
 
-    <div id="mombio">
-        <a href="http://www.momcharts.com" title="MomCharts.com"><img src="//az415353.vo.msecnd.net/nhblogimage/mc-prep-stripes-blog-336x168.png" alt="Mom Charts" title="Visit Mom Charts"/></a>
-    </div>
-  
-    <div id="ad1">
-      <script type="text/javascript"><!--
-        google_ad_client = "ca-pub-0038909073879850";
-        /* NH13 sisebar aquare */
-        google_ad_slot = "9586690583";
-        google_ad_width = 336;
-        google_ad_height = 280;
-        //-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>  
-    </div>
-    <div id="ad2">
-        <script type="text/javascript"><!--
-            google_ad_client = "ca-pub-0038909073879850";
-            /* nh13 sidebar tower */
-            google_ad_slot = "2063423787";
-            google_ad_width = 160;
-            google_ad_height = 600;
-            //-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-
-    </div>
+    <?php 
+       get_ad_section();
+    ?>
+    
     <?php if (is_single()) {
         
         $instance = array("title" => "Recent Posts", "number" => 5);
