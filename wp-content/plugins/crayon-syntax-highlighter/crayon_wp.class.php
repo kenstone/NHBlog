@@ -516,7 +516,7 @@ class CrayonWP {
 
             CrayonLog::debug('enqueue');
             global $CRAYON_VERSION;
-            if (is_singular() ) {
+            
                 if (CRAYON_MINIFY) {
                     //wp_enqueue_style('crayon', plugins_url(CRAYON_STYLE_MIN, __FILE__), array(), $CRAYON_VERSION);
                     wp_enqueue_script('crayon_js_min', plugins_url(CRAYON_JS_MIN, __FILE__), array(), $CRAYON_VERSION);
@@ -528,7 +528,6 @@ class CrayonWP {
                 }
                 CrayonSettingsWP::init_js_settings();
                 self::$enqueued = TRUE;
-            }
         }
     }
 
