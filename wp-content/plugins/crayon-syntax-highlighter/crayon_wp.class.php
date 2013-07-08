@@ -1245,7 +1245,7 @@ class CrayonWP {
 }
 
 // Only if WP is loaded
-if (defined('ABSPATH')) {
+if (defined('ABSPATH') && is_singular()) {
     if (!is_admin()) {
         // Filters and Actions
 
