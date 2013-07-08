@@ -424,7 +424,7 @@ class CrayonWP {
     /* Search for Crayons in posts and queue them for creation */
     public static function the_posts($posts) {
         CrayonLog::debug('the_posts');
-
+        if (is_singular()) {
         // Whether to enqueue syles/scripts
         CrayonSettingsWP::load_settings(TRUE); // We will eventually need more than the settings
 
@@ -497,7 +497,7 @@ class CrayonWP {
                 }
             }
         }
-
+}
         return $posts;
     }
 
