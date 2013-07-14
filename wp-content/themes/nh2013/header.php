@@ -30,7 +30,7 @@
 
     <meta name="msvalidate.01" content="2AEC1661F41A33829C241596C37C4E79" />
     <meta name="google-site-verification" content="JwzLQeu_nXodSwIGi85ocuqwah4WFZp0qxPGgVUeO3s" />
-
+    <meta property="twitter:account_id" content="3242041" />
 
     <meta name="description" content="<?php 
         if (is_single()) {
