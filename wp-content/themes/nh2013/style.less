@@ -874,7 +874,7 @@ body > header {
 
 
     div {
-        margin-bottom: @gutter*2;
+        margin-bottom: @gutter*1.5;
 		
 		&+div {
 			margin-bottom:@gutter;
@@ -900,7 +900,7 @@ body > header {
     #mombio {
         width: @sidebar-width;
         display: block;
-        margin-bottom: @gutter *2;
+        margin-bottom: @gutter *1.5;
     }
 
     #ad1 {
@@ -917,15 +917,19 @@ body > header {
         /*background-color: #444;*/
     }
 
+    #mc-embedded-subscribe {
+      margin-top:@gutter /2;
+    }
+
     input[type=search] {
         .inputTextBox;
         width: 245px;
     }
 
-        input[type=search]:focus {
-            border-color: @pink;
-            border-width: 1px;
-        }
+    input:focus {
+        border-color: @pink;
+        border-width: 1px;
+    }
 
     button {
         .button;
