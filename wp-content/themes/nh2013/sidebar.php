@@ -38,7 +38,7 @@
     <div class="mc-field-group">
     	<label for="mce-EMAIL" class="ancientHelper">Email Address </label>
     	<input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address">
-    	<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+    	<input type="submit" value="Get It!" name="subscribe" id="mc-embedded-subscribe" class="button">
     </div>
 
     </form>
