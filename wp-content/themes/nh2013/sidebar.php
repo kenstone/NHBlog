@@ -35,11 +35,9 @@
     <div id="mc_embed_signup">
     <form action="http://momcharts.us6.list-manage.com/subscribe/post?u=075c5043fb371be6f49a9ceb5&amp;id=7afda3ee95" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     	<h2>Want The Newsletter?</h2>
-    <div class="mc-field-group">
     	<label for="mce-EMAIL" class="ancientHelper">Email Address </label>
     	<input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address">
-    	<input type="submit" value="Get It!" name="subscribe" id="mc-embedded-subscribe" class="button">
-    </div>
+    	<button>Get It!</button>
 
     </form>
     </div>

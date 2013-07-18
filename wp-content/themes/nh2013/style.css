@@ -513,7 +513,7 @@ body > header nav ul a:hover {
   font-style: normal;
   font-weight: 300;
 }
-/* Main Content Area */
+/* dMain Content Area */
 #main {
   max-width: 1366px;
   margin-left: auto;
@@ -541,8 +541,7 @@ body > header nav ul a:hover {
   height: 100%;
   display: block;
 }
-#main form input[type=text],
-#main form input[type=email] {
+#main form input[type=text] {
   width: 300px;
   height: 40px;
   font-size: 125%;
@@ -808,7 +807,8 @@ body > header nav ul a:hover {
 #sidebar #mc-embedded-subscribe {
   margin-top: 10px;
 }
-#sidebar input[type=search] {
+#sidebar input[type=search],
+#sidebar input[type=email] {
   height: 40px;
   font-size: 125%;
   font-family: "museo-sans", sans-serif;
