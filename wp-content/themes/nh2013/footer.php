@@ -12,8 +12,8 @@
     
 
     <footer>
-        <label>&copy; 2012, <a href="http://plus.google.com/117442799415877949162/?rel=me" title="David Iffland">David Iffland</a> All Rights Reserved</label>
-        <label>Designed in Illinois by me</label>
+        <label>&copy; 2012, Heavy Code, LLC. - All Rights Reserved</label>
+        <label>Designed in Illinois</label>
     </footer>
 
 
