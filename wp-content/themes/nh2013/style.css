@@ -487,12 +487,12 @@ body > header nav {
 }
 body > header nav ul {
   float: right;
-  margin-right: 20px;
+  margin-right: 0;
 }
 body > header nav ul li {
   float: left;
   display: block;
-  margin-right: 40px;
+  margin-right: 30px;
 }
 body > header nav ul li a,
 body > header nav ul li a:visited {
