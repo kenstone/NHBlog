@@ -795,6 +795,9 @@ body > header nav ul a:hover {
   display: block;
   margin-bottom: 30px;
   background-color: #482790;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 #sidebar #ad1 {
   width: 336px;
