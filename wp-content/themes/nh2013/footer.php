@@ -12,7 +12,7 @@
     
 
     <footer>
-        <label>&copy; 2012-2013 Heavy Code, LLC. - All Rights Reserved - </label>
+        <label>&copy; 2012-2014 Heavy Code, LLC. - All Rights Reserved - </label>
         <label>Designed in Illinois</label>
     </footer>
 

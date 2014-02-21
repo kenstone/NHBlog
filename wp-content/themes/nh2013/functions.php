@@ -60,43 +60,43 @@ function get_ad_section() {
 	switch ($adIndex) {
 		case 0:
 			$adSection = get_ad_one();
-			$adSection += get_momcharts_ad();
+			$adSection += get_hc_ad();
 			$adSection += get_ad_two();
 			return $adSection;
 			break;
 		case 1:
 			$adSection = get_ad_one();
 			$adSection += get_ad_three();
-			$adSection += get_momcharts_ad();
+			$adSection += get_hc_ad();
 			return $adSection;
 			break;
 		case 2:
-			$adSection = get_momcharts_ad();
+			$adSection = get_hc_ad();
 			$adSection += get_ad_two();
 			$adSection += get_ad_three();
 			return $adSection;
 			break;
 		case 3:
 			$adSection = get_ad_three();
-			$adSection += get_momcharts_ad();
+			$adSection += get_hc_ad();
 			$adSection += get_ad_one();
 			return $adSection;
 			break;
 		case 4:
 			$adSection = get_ad_one();
 			$adSection += get_ad_four();
-			$adSection += get_momcharts_ad();
+			$adSection += get_hc_ad();
 			return $adSection;
 			break;
 		case 5:
 			$adSection = get_ad_four();
 			$adSection += get_ad_one();
-			$adSection += get_momcharts_ad();
+			$adSection += get_hc_ad();
 			return $adSection;
 			break;
 		case 6:
 			$adSection = get_ad_one();
-			$adSection += get_momcharts_ad();
+			$adSection += get_hc_ad();
 			$adSection += get_ad_four();
 			return $adSection;
 			break;
@@ -207,6 +207,15 @@ function get_momcharts_ad() { ?>
 <?php
 }
 
+endif;
+
+if (!function_exists('get_hc_ad')) :
+    function get_hc_ad() { ?>
+        <div id="hcAd">
+            <a href="http://heavyco.de" title="Heavy Code"><img src="//www.heavyco.de/images/logo.png" alt="Heavy Code Logo" title="Visit Heavy Code"/></a>
+        </div>
+    <?php
+}
 endif;
 
 

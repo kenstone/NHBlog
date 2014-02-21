@@ -790,6 +790,12 @@ body > header nav ul a:hover {
   display: block;
   margin-bottom: 30px;
 }
+#sidebar #hcAd {
+  width: 336px;
+  display: block;
+  margin-bottom: 30px;
+  background-color: #482790;
+}
 #sidebar #ad1 {
   width: 336px;
   height: 336px;
