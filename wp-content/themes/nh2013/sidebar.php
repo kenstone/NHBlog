@@ -26,8 +26,7 @@
     <div id="bio">
         
         <div>
-            Dave Iffland is a blogger, speaker, dad, hubby, and creator of <a href="http://www.momcharts.com" title="MomCharts">MomCharts</a>. He is the founder of Heavy Code, LLC and is passionate about
-            web development.
+            Dave Iffland is a blogger, speaker, dad, hubby, and founder of <a href="http://heavyco.de" title="Heavy Code Website">Heavy Code</a>.
         </div>
     </div>
 
