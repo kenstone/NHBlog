@@ -7,7 +7,7 @@ var downsize        = require('downsize'),
 
     api             = require('../api'),
     config          = require('../config'),
-    errors          = require('../errors'),
+    errors          = require('../errorHandling'),
     filters         = require('../filters'),
     template        = require('./template'),
     schema          = require('../data/schema').checks,
@@ -31,11 +31,6 @@ var downsize        = require('downsize'),
             'templates.js',
             'models.js',
             'views.js'
-        ],
-        ember: [
-            'vendor-ember.js',
-            'templates-ember.js',
-            'ghost-dev-ember.js'
         ]
     };
 
@@ -43,13 +38,13 @@ if (!isProduction) {
     hbs.handlebars.logger.level = 0;
 }
 
-
- // [ description]
- //
- // @param  {Object} context date object
- // @param  {*} options
- // @return {Object} A Moment time / date object
-
+/**
+ * [ description]
+ * @todo ghost core helpers + a way for themes to register them
+ * @param  {Object} context date object
+ * @param  {*} options
+ * @return {Object} A Moment time / date object
+ */
 coreHelpers.date = function (context, options) {
     if (!options && context.hasOwnProperty('hash')) {
         options = context;
@@ -139,7 +134,7 @@ coreHelpers.pageUrl = function (context, block) {
 //
 // *Usage example:*
 // `{{url}}`
-// `{{url absolute="true"}}`
+// `{{url absolute}}`
 //
 // Returns the URL for the current object context
 // i.e. If inside a post context will return post permalink
@@ -346,7 +341,7 @@ coreHelpers.apps = function (context, options) {
 };
 
 coreHelpers.ghost_script_tags = function () {
-    var scriptList = scriptFiles.ember;
+    var scriptList = isProduction ? scriptFiles.production : scriptFiles.development;
 
     scriptList = _.map(scriptList, function (fileName) {
         return scriptTemplate({
@@ -390,9 +385,8 @@ coreHelpers.body_class = function (options) {
         classes.push('page');
     }
 
-    return api.settings.read({context: {internal: true}, key: 'activeTheme'}).then(function (response) {
-        var activeTheme = response.settings[0],
-            paths = config().paths.availableThemes[activeTheme.value],
+    return api.settings.read('activeTheme').then(function (activeTheme) {
+        var paths = config().paths.availableThemes[activeTheme.value],
             view;
 
         if (post) {
@@ -451,8 +445,8 @@ coreHelpers.ghost_head = function (options) {
 
     head.push('<meta name="generator" content="Ghost ' + trimmedVersion + '" />');
 
-    head.push('<link rel="alternate" type="application/rss+xml" title="' +
-        _.escape(blog.title)  + '" href="' + config.urlFor('rss') + '">');
+    head.push('<link rel="alternate" type="application/rss+xml" title="'
+        + _.escape(blog.title)  + '" href="' + config.urlFor('rss') + '">');
 
     return coreHelpers.url.call(self, {hash: {absolute: true}}).then(function (url) {
         head.push('<link rel="canonical" href="' + url + '" />');
@@ -466,11 +460,10 @@ coreHelpers.ghost_head = function (options) {
 
 coreHelpers.ghost_foot = function (options) {
     /*jshint unused:false*/
-    var jquery = isProduction ? 'jquery.min.js' : 'jquery.js',
-        foot = [];
+    var foot = [];
 
     foot.push(scriptTemplate({
-        source: config().paths.subdir + '/public/' + jquery,
+        source: config().paths.subdir + '/public/jquery.js',
         version: coreHelpers.assetHash
     }));
 
@@ -498,7 +491,7 @@ coreHelpers.meta_title = function (options) {
 
     return filters.doFilter('meta_title', title).then(function (title) {
         title = title || "";
-        return title.trim();
+        return new hbs.handlebars.SafeString(title.trim());
     });
 };
 
@@ -518,32 +511,31 @@ coreHelpers.meta_description = function (options) {
 
     return filters.doFilter('meta_description', description).then(function (description) {
         description = description || "";
-        return description.trim();
+        return new hbs.handlebars.SafeString(description.trim());
     });
 };
 
 /**
  * Localised string helpers
  *
- * @param {String} key
- * @param {String} default translation
+ * @param String key
+ * @param String default translation
  * @param {Object} options
- * @return {String} A correctly internationalised string
+ * @return String A correctly internationalised string
  */
 coreHelpers.e = function (key, defaultString, options) {
     var output;
-    return when.all([
+    when.all([
         api.settings.read('defaultLang'),
         api.settings.read('forceI18n')
     ]).then(function (values) {
-        if (values[0].settings[0] === 'en_US' &&
-                _.isEmpty(options.hash) &&
-                values[1].settings[0] !== 'true') {
+        if (values[0].value === 'en'
+                && _.isEmpty(options.hash)
+                && _.isEmpty(values[1].value)) {
             output = defaultString;
         } else {
-            output = polyglot.t(key, options.hash);
+            output = polyglot().t(key, options.hash);
         }
-
         return output;
     });
 };
@@ -615,7 +607,6 @@ coreHelpers.foreach = function (context, options) {
     if (i === 0) {
         ret = inverse(this);
     }
-
     return ret;
 };
 
@@ -656,24 +647,24 @@ coreHelpers.has = function (options) {
 coreHelpers.pagination = function (options) {
     /*jshint unused:false*/
     if (!_.isObject(this.pagination) || _.isFunction(this.pagination)) {
-        return errors.logAndThrowError('pagination data is not an object or is a function');
+        errors.logAndThrowError('pagination data is not an object or is a function');
+        return;
     }
-
-    if (_.isUndefined(this.pagination.page) || _.isUndefined(this.pagination.pages) ||
-            _.isUndefined(this.pagination.total) || _.isUndefined(this.pagination.limit)) {
-        return errors.logAndThrowError('All values must be defined for page, pages, limit and total');
+    if (_.isUndefined(this.pagination.page) || _.isUndefined(this.pagination.pages)
+            || _.isUndefined(this.pagination.total) || _.isUndefined(this.pagination.limit)) {
+        errors.logAndThrowError('All values must be defined for page, pages, limit and total');
+        return;
     }
-
-    if ((!_.isNull(this.pagination.next) && !_.isNumber(this.pagination.next)) ||
-            (!_.isNull(this.pagination.prev) && !_.isNumber(this.pagination.prev))) {
-        return errors.logAndThrowError('Invalid value, Next/Prev must be a number');
+    if ((!_.isUndefined(this.pagination.next) && !_.isNumber(this.pagination.next))
+            || (!_.isUndefined(this.pagination.prev) && !_.isNumber(this.pagination.prev))) {
+        errors.logAndThrowError('Invalid value, Next/Prev must be a number');
+        return;
     }
-
-    if (!_.isNumber(this.pagination.page) || !_.isNumber(this.pagination.pages) ||
-            !_.isNumber(this.pagination.total) || !_.isNumber(this.pagination.limit)) {
-        return errors.logAndThrowError('Invalid value, check page, pages, limit and total are numbers');
+    if (!_.isNumber(this.pagination.page) || !_.isNumber(this.pagination.pages)
+            || !_.isNumber(this.pagination.total) || !_.isNumber(this.pagination.limit)) {
+        errors.logAndThrowError('Invalid value, check page, pages, limit and total are numbers');
+        return;
     }
-
     var context = _.merge({}, this.pagination);
 
     if (this.tag !== undefined) {
@@ -808,12 +799,16 @@ registerHelpers = function (adminHbs, assetHash) {
 
 
     // Register admin helpers
-    registerAdminHelper('ghost_script_tags', coreHelpers.ghost_script_tags);
-
     registerAdminHelper('asset', coreHelpers.asset);
 
-    // TODO: Make sure this works #3160
-    // we probably don't need this code for it, but it needs to work still
+    registerAdminHelper('ghost_script_tags', coreHelpers.ghost_script_tags);
+
+    registerAdminHelper('file_storage', coreHelpers.file_storage);
+
+    registerAdminHelper('apps', coreHelpers.apps);
+
+    registerAdminHelper('admin_url', coreHelpers.admin_url);
+
     registerAsyncAdminHelper('update_notification', coreHelpers.update_notification);
 };
 

@@ -1,22 +1,15 @@
-// # Tag API
-// RESTful API for the Tag resource
 var dataProvider = require('../models'),
     tags;
 
-/**
- * ## Tags API Methods
- *
- * **See:** [API Methods](index.js.html#api%20methods)
- */
+
 tags = {
-    /**
-     * ### Browse
-     * @param {{context}} options
-     * @returns {Promise(Tags)}
-     */
-    browse: function browse(options) {
-        return dataProvider.Tag.findAll(options).then(function (result) {
-            return { tags: result.toJSON() };
+    // #### Browse
+
+    // **takes:** Nothing yet
+    browse: function browse() {
+        // **returns:** a promise for all tags which have previously been used in a json object
+        return dataProvider.Tag.findAll().then(function (result) {
+            return result.toJSON();
         });
     }
 };

@@ -1,19 +1,21 @@
-var _          = require('lodash'),
-    when       = require('when'),
-    versioning = require('../versioning'),
-    config     = require('../../config'),
-    utils      = require('../utils'),
+var when      = require('when'),
+    _         = require('lodash'),
+    migration = require('../migration'),
+    knex      = require('../../models/base').knex,
+    schema    = require('../schema').tables,
 
     excludedTables = ['sessions'],
     exporter;
 
 exporter = function () {
-    return when.join(versioning.getDatabaseVersion(), utils.getTables()).then(function (results) {
+    var tablesToExport = _.keys(schema);
+
+    return when.join(migration.getDatabaseVersion(), tablesToExport).then(function (results) {
         var version = results[0],
             tables = results[1],
             selectOps = _.map(tables, function (name) {
                 if (excludedTables.indexOf(name) < 0) {
-                    return config().database.knex(name).select();
+                    return knex(name).select();
                 }
             });
 
@@ -33,8 +35,8 @@ exporter = function () {
             });
 
             return when.resolve(exportData);
-        }).catch(function (err) {
-            console.log('Error exporting data: ' + err);
+        }, function (err) {
+            console.log("Error exporting data: " + err);
         });
     });
 };
