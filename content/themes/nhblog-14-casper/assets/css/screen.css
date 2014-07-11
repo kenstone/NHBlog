@@ -188,7 +188,7 @@ h4, h5, h6 {
     text-rendering: optimizeLegibility;
     line-height: 1;
     margin-top: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "proxima-nova",sans-serif;
 }
 
 h1 {
@@ -478,8 +478,7 @@ margin on the iframe, cause it breaks stuff. */
     margin: 10px 0 10px 0;
     font-size: 5rem;
     letter-spacing: -1px;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
     text-shadow: 0 1px 6px rgba(0,0,0,0.1);
 }
 
