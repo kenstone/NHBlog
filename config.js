@@ -49,7 +49,16 @@ config = {
     // Configure your URL and mail settings here
     production: {
         url: 'http://notebook-ghost.azurewebsites.net',
-        mail: {},
+        mail: {
+            transport: 'SMTP',
+            options: {
+                service: 'Sendgrid',
+                auth: {
+                    user: 'azure_bca8039f9af6074001c9947a734d9fd8@azure.com',
+                    pass: process.env.SENDGRID_PASSWORD
+                }
+            }
+        },
         database: {
             client: 'sqlite3',
             connection: {
