@@ -540,7 +540,7 @@ margin on the iframe, cause it breaks stuff. */
 .post-meta {
     display: inline-block;
     margin: 0 0 5px 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "proxima-nova",sans-serif;
     font-size: 1.5rem;
     color: #9EABB3;
 }
@@ -806,7 +806,7 @@ margin on the iframe, cause it breaks stuff. */
     width: 80%;
     max-width: 700px;
     margin: 4rem auto;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "proxima-nova",sans-serif;
     font-size: 1.3rem;
     color: #9EABB3;
     text-align: center;
@@ -856,7 +856,7 @@ margin on the iframe, cause it breaks stuff. */
     margin: 8rem 0 0 0;
     padding: 4rem 0;
     border-top: #EBF2F6 1px solid;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "proxima-nova",sans-serif;
     font-size: 1.3rem;
     line-height: 1.7em;
     color: #BBC7CC;
