@@ -630,6 +630,10 @@ margin on the iframe, cause it breaks stuff. */
     padding: 2.5rem 0;
 }
 
+.post-content {
+    margin-top: 5rem;
+}
+
 /* Keep images centred and within the bounds of the post-width */
 .post-content img {
     display: block;
