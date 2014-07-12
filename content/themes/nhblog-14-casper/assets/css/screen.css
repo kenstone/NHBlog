@@ -42,7 +42,7 @@ a:focus { outline: thin dotted; }
 a:active, a:hover { outline: 0; }
 h1 { font-size: 2em; margin: 0.67em 0; }
 abbr[title] { border-bottom: 1px dotted; }
-b, strong { font-weight: bold; }
+b, strong { font-weight: 700; }
 dfn { font-style: italic; }
 hr {
    -moz-box-sizing: content-box;
@@ -165,7 +165,7 @@ html {
 body {
     height: 100%;
     max-height: 100%;
-    font-family: 'Noto Serif', serif;
+    font-family: "museo",serif;
     font-size: 2.0rem;
     line-height: 1.6em;
     color: #3A4145;
@@ -253,7 +253,7 @@ dl dt {
     text-align: right;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 1em
 }
 
@@ -294,10 +294,10 @@ blockquote small {
 blockquote small:before { content: '\2014 \00A0'; }
 
 blockquote cite {
-    font-weight:bold;
+    font-weight:700;
 }
 
-blockquote cite a { font-weight: normal; }
+blockquote cite a { font-weight: 300; }
 
 mark {
     background-color: #ffc336;
@@ -345,7 +345,7 @@ kbd {
     color: #666;
     text-shadow: #fff 0 1px 0;
     font-size: 0.9em;
-    font-weight: bold;
+    font-weight: 700;
     background: #f4f4f4;
     border-radius: 4px;
     box-shadow:
@@ -487,7 +487,7 @@ margin on the iframe, cause it breaks stuff. */
     font-size: 1.8rem;
     line-height: 1.5em;
     font-weight: 300;
-    font-family: 'Noto Serif', serif;
+    font-family: "museo",serif;
     letter-spacing: 0;
     text-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
@@ -568,7 +568,7 @@ margin on the iframe, cause it breaks stuff. */
 
 .user-name {
     display: block;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .user-bio {
@@ -588,7 +588,7 @@ margin on the iframe, cause it breaks stuff. */
 
 .publish-heading {
     display: block;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .publish-date {
@@ -910,7 +910,7 @@ margin on the iframe, cause it breaks stuff. */
     position: absolute;
     top: 9px;
     left: 9px;
-    font-weight: bold;
+    font-weight: 700;
     transition: color 0.5s ease;
 }
 
