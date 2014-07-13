@@ -48,7 +48,7 @@ config = {
     // When running Ghost in the wild, use the production environment
     // Configure your URL and mail settings here
     production: {
-        url: 'http://notebook-ghost.azurewebsites.net',
+        url: 'http://notebookheavy.com',
         mail: {
             transport: 'SMTP',
             options: {
