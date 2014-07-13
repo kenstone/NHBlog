@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="author" content="David Iffland" />
+    <meta name="copyright" content="David Iffland" />
+    <meta name="msvalidate.01" content="2AEC1661F41A33829C241596C37C4E79" />
+    <meta name="google-site-verification" content="JwzLQeu_nXodSwIGi85ocuqwah4WFZp0qxPGgVUeO3s" />
+    <meta property="twitter:account_id" content="3242041" />
+
+    {{! Favicons }}
+    <link rel="apple-touch-icon" sizes="57x57" href="{{asset "apple-touch-icon-57x57.png"}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{asset "apple-touch-icon-114x114.png"}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{asset "apple-touch-icon-72x72.png"}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{asset "apple-touch-icon-144x144.png"}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{asset "apple-touch-icon-60x60.png"}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{asset "apple-touch-icon-120x120.png"}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset "apple-touch-icon-76x76.png"}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset "apple-touch-icon-152x152.png"}}">
+    <link rel="icon" type="image/png" href="{{asset "favicon-196x196.png" sizes="196x196"}}">
+    <link rel="icon" type="image/png" href="{{asset "favicon-160x160.png" sizes="160x160"}}">
+    <link rel="icon" type="image/png" href="{{asset "favicon-96x96.png" sizes="96x96"}}">
+    <link rel="icon" type="image/png" href="{{asset "favicon-16x16.png" sizes="16x16"}}">
+    <link rel="icon" type="image/png" href="{{asset "favicon-32x32.png" sizes="32x32"}}">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="msapplication-TileImage" content="{{asset "mstile-144x144.png"}}">
+
+    <link rel="me" type="text/html" href="http://plus.google.com/117442799415877949162" />
+    <link rel="me" type="text/html" href="http://twitter.com/daveiffland"> 
+
+    {{! Styles'n'Scripts }}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+    <script type="text/javascript" src="//use.typekit.net/fqd1kzk.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+
+    {{! Everything else gets inserted here }}
+    {{{body}}}
+
+    <footer class="site-footer">
+        <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">Subscribe!</span></a>
+        <p>
+            <h5>
+                <a href="{{@blog.url}}/about/">About</a>
+            </h5>
+        </p>
+        <div class="inner">
+             <section class="copyright">All content copyright <a href="{{@blog.url}}/">Heavy Code, LLC</a> &copy; 2012-2014 &bull; All rights reserved.</section>
+        </div>
+    </footer>
+
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-4053014-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+
+</body>
+</html>
