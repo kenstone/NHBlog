@@ -670,10 +670,6 @@ margin on the iframe, cause it breaks stuff. */
     line-height: 1.6em;
 }
 
-.post-footer h5 a {
-    color: #50585D;
-}
-
 /* list of author links - location / url */
 .author-meta {
     padding: 0;
@@ -875,6 +871,10 @@ margin on the iframe, cause it breaks stuff. */
 .site-footer a {
     color: #BBC7CC;
     text-decoration: underline;
+}
+
+.site-footer h5 a {
+    color: #50585D;
 }
 
 .site-footer a:hover {
