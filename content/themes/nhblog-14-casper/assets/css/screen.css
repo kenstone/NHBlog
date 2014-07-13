@@ -460,6 +460,11 @@ margin on the iframe, cause it breaks stuff. */
     background-size: cover;
 }
 
+.site-head a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .blog-logo {
     text-decoration: none;
 }
