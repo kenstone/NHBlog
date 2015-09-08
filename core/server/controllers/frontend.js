@@ -4,25 +4,22 @@
 
 /*global require, module */
 
-var moment      = require('moment'),
-    rss         = require('../data/xml/rss'),
-    _           = require('lodash'),
-    Promise     = require('bluebird'),
+var _           = require('lodash'),
     api         = require('../api'),
+    rss         = require('../data/xml/rss'),
+    path        = require('path'),
     config      = require('../config'),
-    filters     = require('../filters'),
-    template    = require('../helpers/template'),
     errors      = require('../errors'),
+    filters     = require('../filters'),
+    Promise     = require('bluebird'),
+    template    = require('../helpers/template'),
     routeMatch  = require('path-match')(),
 
     frontendControllers,
-    staticPostPermalink;
-
-// Cache static post permalink regex
-staticPostPermalink = routeMatch('/:slug/:edit?');
+    staticPostPermalink = routeMatch('/:slug/:edit?');
 
 function getPostPage(options) {
-    return api.settings.read('postsPerPage').then(function (response) {
+    return api.settings.read('postsPerPage').then(function then(response) {
         var postPP = response.settings[0],
             postsPerPage = parseInt(postPP.value, 10);
 
@@ -41,14 +38,6 @@ function getPostPage(options) {
  * @return {Object} containing page variables
  */
 function formatPageResponse(posts, page, extraValues) {
-    // Delete email from author for frontend output
-    // TODO: do this on API level if no context is available
-    posts = _.each(posts, function (post) {
-        if (post.author) {
-            delete post.author.email;
-        }
-        return post;
-    });
     extraValues = extraValues || {};
 
     var resp = {
@@ -63,19 +52,18 @@ function formatPageResponse(posts, page, extraValues) {
  * @return {Object} containing page variables
  */
 function formatResponse(post) {
-    // Delete email from author for frontend output
-    // TODO: do this on API level if no context is available
-    if (post.author) {
-        delete post.author.email;
-    }
-
     return {
         post: post
     };
 }
 
 function handleError(next) {
-    return function (err) {
+    return function handleError(err) {
+        // If we've thrown an error message of type: 'NotFound' then we found no path match.
+        if (err.errorType === 'NotFoundError') {
+            return next();
+        }
+
         return next(err);
     };
 }
@@ -84,23 +72,28 @@ function setResponseContext(req, res, data) {
     var contexts = [],
         pageParam = req.params.page !== undefined ? parseInt(req.params.page, 10) : 1,
         tagPattern = new RegExp('^\\/' + config.routeKeywords.tag + '\\/'),
-        authorPattern = new RegExp('^\\/' + config.routeKeywords.author + '\\/');
+        authorPattern = new RegExp('^\\/' + config.routeKeywords.author + '\\/'),
+        privatePattern = new RegExp('^\\/' + config.routeKeywords.private + '\\/'),
+        indexPattern = new RegExp('^\\/' + config.routeKeywords.page + '\\/'),
+        homePattern = new RegExp('^\\/$');
 
     // paged context
     if (!isNaN(pageParam) && pageParam > 1) {
         contexts.push('paged');
     }
 
-    if (req.route.path === '/' + config.routeKeywords.page + '/:page/') {
+    if (indexPattern.test(res.locals.relativeUrl)) {
         contexts.push('index');
-    } else if (req.route.path === '/') {
+    } else if (homePattern.test(res.locals.relativeUrl)) {
         contexts.push('home');
         contexts.push('index');
-    } else if (/\/rss\/(:page\/)?$/.test(req.route.path)) {
+    } else if (/^\/rss\//.test(res.locals.relativeUrl)) {
         contexts.push('rss');
-    } else if (tagPattern.test(req.route.path)) {
+    } else if (privatePattern.test(res.locals.relativeUrl)) {
+        contexts.push('private');
+    } else if (tagPattern.test(res.locals.relativeUrl)) {
         contexts.push('tag');
-    } else if (authorPattern.test(req.route.path)) {
+    } else if (authorPattern.test(res.locals.relativeUrl)) {
         contexts.push('author');
     } else if (data && data.post && data.post.page) {
         contexts.push('page');
@@ -114,7 +107,7 @@ function setResponseContext(req, res, data) {
 // Add Request context parameter to the data object
 // to be passed down to the templates
 function setReqCtx(req, data) {
-    (Array.isArray(data) ? data : [data]).forEach(function (d) {
+    (Array.isArray(data) ? data : [data]).forEach(function forEach(d) {
         d.secure = req.secure;
     });
 }
@@ -129,7 +122,7 @@ function getActiveThemePaths() {
         context: {
             internal: true
         }
-    }).then(function (response) {
+    }).then(function then(response) {
         var activeTheme = response.settings[0],
             paths = config.paths.availableThemes[activeTheme.value];
 
@@ -137,55 +130,47 @@ function getActiveThemePaths() {
     });
 }
 
-frontendControllers = {
-    homepage: function (req, res, next) {
-        // Parse the page number
+/*
+* Sets the response context around a post and renders it
+* with the current theme's post view. Used by post preview
+* and single post methods.
+* Returns a function that takes the post to be rendered.
+*/
+function renderPost(req, res) {
+    return function renderPost(post) {
+        return getActiveThemePaths().then(function then(paths) {
+            var view = template.getThemeViewForPost(paths, post),
+                response = formatResponse(post);
+
+            setResponseContext(req, res, response);
+            res.render(view, response);
+        });
+    };
+}
+
+function renderChannel(channelOpts) {
+    channelOpts = channelOpts || {};
+
+    return function renderChannel(req, res, next) {
         var pageParam = req.params.page !== undefined ? parseInt(req.params.page, 10) : 1,
             options = {
                 page: pageParam
-            };
+            },
+            hasSlug,
+            filter, filterKey;
 
-        // No negative pages, or page 1
-        if (isNaN(pageParam) || pageParam < 1 || (pageParam === 1 && req.route.path === '/page/:page/')) {
-            return res.redirect(config.paths.subdir + '/');
+        // Add the slug if it exists in the route
+        if (channelOpts.route.indexOf(':slug') !== -1) {
+            options[channelOpts.name] = req.params.slug;
+            hasSlug = true;
         }
 
-        return getPostPage(options).then(function (page) {
-            // If page is greater than number of pages we have, redirect to last page
-            if (pageParam > page.meta.pagination.pages) {
-                return res.redirect(page.meta.pagination.pages === 1 ? config.paths.subdir + '/' : (config.paths.subdir + '/page/' + page.meta.pagination.pages + '/'));
+        function createUrl(page) {
+            var url = config.paths.subdir + channelOpts.route;
+
+            if (hasSlug) {
+                url = url.replace(':slug', options[channelOpts.name]);
             }
-
-            setReqCtx(req, page.posts);
-
-            // Render the page of posts
-            filters.doFilter('prePostsRender', page.posts).then(function (posts) {
-                getActiveThemePaths().then(function (paths) {
-                    var view = paths.hasOwnProperty('home.hbs') ? 'home' : 'index';
-
-                    // If we're on a page then we always render the index
-                    // template.
-                    if (pageParam > 1) {
-                        view = 'index';
-                    }
-
-                    setResponseContext(req, res);
-                    res.render(view, formatPageResponse(posts, page));
-                });
-            });
-        }).catch(handleError(next));
-    },
-    tag: function (req, res, next) {
-        // Parse the page number
-        var pageParam = req.params.page !== undefined ? parseInt(req.params.page, 10) : 1,
-            options = {
-                page: pageParam,
-                tag: req.params.slug
-            };
-
-        // Get url for tag page
-        function tagUrl(tag, page) {
-            var url = config.paths.subdir + '/' + config.routeKeywords.tag  + '/' + tag + '/';
 
             if (page && page > 1) {
                 url += 'page/' + page + '/';
@@ -194,113 +179,116 @@ frontendControllers = {
             return url;
         }
 
-        // No negative pages, or page 1
         if (isNaN(pageParam) || pageParam < 1 || (req.params.page !== undefined && pageParam === 1)) {
-            return res.redirect(tagUrl(options.tag));
+            return res.redirect(createUrl());
         }
 
-        return getPostPage(options).then(function (page) {
+        return getPostPage(options).then(function then(page) {
             // If page is greater than number of pages we have, redirect to last page
             if (pageParam > page.meta.pagination.pages) {
-                return res.redirect(tagUrl(options.tag, page.meta.pagination.pages));
+                return res.redirect(createUrl(page.meta.pagination.pages));
             }
 
             setReqCtx(req, page.posts);
-            if (page.meta.filters.tags) {
-                setReqCtx(req, page.meta.filters.tags[0]);
+            if (channelOpts.filter && page.meta.filters[channelOpts.filter]) {
+                filterKey = page.meta.filters[channelOpts.filter];
+                filter = (_.isArray(filterKey)) ? filterKey[0] : filterKey;
+                setReqCtx(req, filter);
             }
 
-            // Render the page of posts
-            filters.doFilter('prePostsRender', page.posts).then(function (posts) {
-                getActiveThemePaths().then(function (paths) {
-                    var view = template.getThemeViewForTag(paths, options.tag),
-                    // Format data for template
-                        result = formatPageResponse(posts, page, {
-                            tag: page.meta.filters.tags ? page.meta.filters.tags[0] : ''
-                        });
+            filters.doFilter('prePostsRender', page.posts, res.locals).then(function then(posts) {
+                getActiveThemePaths().then(function then(paths) {
+                    var view = 'index',
+                        result,
+                        extra = {};
 
-                    // If the resulting tag is '' then 404.
-                    if (!result.tag) {
-                        return next();
+                    if (channelOpts.firstPageTemplate && paths.hasOwnProperty(channelOpts.firstPageTemplate + '.hbs')) {
+                        view = (pageParam > 1) ? 'index' : channelOpts.firstPageTemplate;
+                    } else if (channelOpts.slugTemplate) {
+                        view = template.getThemeViewForChannel(paths, channelOpts.name, options[channelOpts.name]);
+                    } else if (paths.hasOwnProperty(channelOpts.name + '.hbs')) {
+                        view = channelOpts.name;
                     }
+
+                    if (channelOpts.filter) {
+                        extra[channelOpts.name] = (filterKey) ? filter : '';
+
+                        if (!extra[channelOpts.name]) {
+                            return next();
+                        }
+
+                        result = formatPageResponse(posts, page, extra);
+                    } else {
+                        result = formatPageResponse(posts, page);
+                    }
+
                     setResponseContext(req, res);
                     res.render(view, result);
                 });
             });
         }).catch(handleError(next));
-    },
-    author: function (req, res, next) {
-        // Parse the page number
-        var pageParam = req.params.page !== undefined ? parseInt(req.params.page, 10) : 1,
-            options = {
-                page: pageParam,
-                author: req.params.slug
+    };
+}
+
+frontendControllers = {
+    homepage: renderChannel({
+        name: 'home',
+        route: '/',
+        firstPageTemplate: 'home'
+    }),
+    tag: renderChannel({
+        name: 'tag',
+        route: '/' + config.routeKeywords.tag + '/:slug/',
+        filter: 'tags',
+        slugTemplate: true
+    }),
+    author: renderChannel({
+        name: 'author',
+        route: '/' + config.routeKeywords.author + '/:slug/',
+        filter: 'author',
+        slugTemplate: true
+    }),
+    preview: function preview(req, res, next) {
+        var params = {
+                uuid: req.params.uuid,
+                status: 'all',
+                include: 'author,tags,fields'
             };
 
-        // Get url for tag page
-        function authorUrl(author, page) {
-            var url = config.paths.subdir + '/' + config.routeKeywords.author + '/' + author + '/';
+        api.posts.read(params).then(function then(result) {
+            var post = result.posts[0];
 
-            if (page && page > 1) {
-                url += config.routeKeywords.page + '/' + page + '/';
+            if (!post) {
+                return next();
             }
 
-            return url;
-        }
-
-        // No negative pages, or page 1
-        if (isNaN(pageParam) || pageParam < 1 || (req.params.page !== undefined && pageParam === 1)) {
-            return res.redirect(authorUrl(options.author));
-        }
-
-        return getPostPage(options).then(function (page) {
-            // If page is greater than number of pages we have, redirect to last page
-            if (pageParam > page.meta.pagination.pages) {
-                return res.redirect(authorUrl(options.author, page.meta.pagination.pages));
+            if (post.status === 'published') {
+                return res.redirect(301, config.urlFor('post', {post: post}));
             }
 
-            setReqCtx(req, page.posts);
-            if (page.meta.filters.author) {
-                setReqCtx(req, page.meta.filters.author);
-            }
+            setReqCtx(req, post);
 
-            // Render the page of posts
-            filters.doFilter('prePostsRender', page.posts).then(function (posts) {
-                getActiveThemePaths().then(function (paths) {
-                    var view = paths.hasOwnProperty('author.hbs') ? 'author' : 'index',
-                        // Format data for template
-                        result = formatPageResponse(posts, page, {
-                            author: page.meta.filters.author ? page.meta.filters.author : ''
-                        });
-
-                    // If the resulting author is '' then 404.
-                    if (!result.author) {
-                        return next();
-                    }
-
-                    setResponseContext(req, res);
-                    res.render(view, result);
-                });
-            });
+            filters.doFilter('prePostsRender', post, res.locals)
+                .then(renderPost(req, res));
         }).catch(handleError(next));
     },
 
-    single: function (req, res, next) {
-        var path = req.path,
+    single: function single(req, res, next) {
+        var postPath = req.path,
             params,
             usingStaticPermalink = false;
 
-        api.settings.read('permalinks').then(function (response) {
-            var permalink = response.settings[0],
+        api.settings.read('permalinks').then(function then(response) {
+            var permalink = response.settings[0].value,
                 editFormat,
                 postLookup,
                 match;
 
-            editFormat = permalink.value[permalink.value.length - 1] === '/' ? ':edit?' : '/:edit?';
+            editFormat = permalink.substr(permalink.length - 1) === '/' ? ':edit?' : '/:edit?';
 
             // Convert saved permalink into a path-match function
-            permalink = routeMatch(permalink.value + editFormat);
-            match = permalink(path);
+            permalink = routeMatch(permalink + editFormat);
+            match = permalink(postPath);
 
             // Check if the path matches the permalink structure.
             //
@@ -308,7 +296,7 @@ frontendControllers = {
             // need to verify it's not a static post,
             // and test against that permalink structure.
             if (match === false) {
-                match = staticPostPermalink(path);
+                match = staticPostPermalink(postPath);
                 // If there are still no matches then return.
                 if (match === false) {
                     // Reject promise chain with type 'NotFound'
@@ -327,10 +315,9 @@ frontendControllers = {
 
             // Query database to find post
             return api.posts.read(postLookup);
-        }).then(function (result) {
+        }).then(function then(result) {
             var post = result.posts[0],
-                slugDate = [],
-                slugFormat = [];
+                postUrl = (params.edit) ? postPath.replace(params.edit + '/', '') : postPath;
 
             if (!post) {
                 return next();
@@ -350,16 +337,8 @@ frontendControllers = {
 
                 setReqCtx(req, post);
 
-                filters.doFilter('prePostsRender', post).then(function (post) {
-                    getActiveThemePaths().then(function (paths) {
-                        var view = template.getThemeViewForPost(paths, post),
-                            response = formatResponse(post);
-
-                        setResponseContext(req, res, response);
-
-                        res.render(view, response);
-                    });
-                });
+                filters.doFilter('prePostsRender', post, res.locals)
+                    .then(renderPost(req, res));
             }
 
             // If we've checked the path with the static permalink structure
@@ -369,61 +348,36 @@ frontendControllers = {
                 if (post.page) {
                     return render();
                 }
-
                 return next();
             }
 
-            // If there is an author parameter in the slug, check that the
-            // post is actually written by the given author\
-            if (params.author) {
-                if (post.author.slug === params.author) {
-                    return render();
-                }
+            // Check if the url provided with the post object matches req.path
+            // If it does, render the post
+            // If not, return 404
+            if (post.url && post.url === postUrl) {
+                return render();
+            } else {
                 return next();
             }
-
-            // If there is any date based parameter in the slug
-            // we will check it against the post published date
-            // to verify it's correct.
-            if (params.year || params.month || params.day) {
-                if (params.year) {
-                    slugDate.push(params.year);
-                    slugFormat.push('YYYY');
-                }
-
-                if (params.month) {
-                    slugDate.push(params.month);
-                    slugFormat.push('MM');
-                }
-
-                if (params.day) {
-                    slugDate.push(params.day);
-                    slugFormat.push('DD');
-                }
-
-                slugDate = slugDate.join('/');
-                slugFormat = slugFormat.join('/');
-
-                if (slugDate === moment(post.published_at).format(slugFormat)) {
-                    return render();
-                }
-
-                return next();
-            }
-
-            return render();
-        }).catch(function (err) {
-            // If we've thrown an error message
-            // of type: 'NotFound' then we found
-            // no path match.
-            if (err.type === 'NotFoundError') {
-                return next();
-            }
-
-            return handleError(next)(err);
-        });
+        }).catch(handleError(next));
     },
-    rss: rss
+    rss: rss,
+    private: function private(req, res) {
+        var defaultPage = path.resolve(config.paths.adminViews, 'private.hbs');
+        return getActiveThemePaths().then(function then(paths) {
+            var data = {};
+            if (res.error) {
+                data.error = res.error;
+            }
+
+            setResponseContext(req, res);
+            if (paths.hasOwnProperty('private.hbs')) {
+                return res.render('private', data);
+            } else {
+                return res.render(defaultPage, data);
+            }
+        });
+    }
 };
 
 module.exports = frontendControllers;
