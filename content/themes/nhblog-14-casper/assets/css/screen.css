@@ -484,7 +484,7 @@ margin on the iframe, cause it breaks stuff. */
     font-size: 5rem;
     letter-spacing: -1px;
     font-weight: 700;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    text-shadow: 0 2px 64px rgba(0,0,0,1);
 }
 
 .blog-description {
